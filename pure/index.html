@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/3.0.0/pure-min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="styles.css">
-    </head>
-    
-    <body>
-        <div class="header">
-            <div class="pure-menu pure-menu-horizontal">
-                <div class="header-left">
-                    <button class="hamburger-btn" onclick="toggleSidebar()">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <a href="#" class="pure-menu-heading">
-                        <img class="pure-image" src="../images/logo-ge-ce-pe-1559b7af.svg" alt="gcp">
-                        <span>Dokumenty</span>
-                    </a>
-                </div>
-                <ul class="pure-menu-list">
-                    <li class="pure-menu-item">
-                        <a href="#" class="pure-menu-link">email@email.com</a>
-                    </li>
-                </ul>
+</head>
+
+<body>
+    <div class="header">
+        <div class="pure-menu pure-menu-horizontal">
+            <div class="header-left">
+                <button class="hamburger-btn" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="#" class="pure-menu-heading">
+                    <img class="pure-image" src="../images/logo-ge-ce-pe-1559b7af.svg" alt="gcp">
+                    <span>Dokumenty</span>
+                </a>
             </div>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item">
+                    <a href="#" class="pure-menu-link">email@email.com</a>
+                </li>
+            </ul>
         </div>
-    
-        <div class="sidebar" id="sidebar">
+    </div>
+
+    <!-- <div class="sidebar" id="sidebar">
             <div class="pure-menu pure-menu-vertical">
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item">
@@ -64,20 +65,63 @@
                     </li>
                 </ul>
             </div>
+        </div> -->
+    <div class="sidebar" id="sidebar">
+        <div class="pure-menu custom-restricted-width">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item pure-menu-selected">
+                    <a href="#" class="pure-menu-link">Flickr</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a href="#" class="pure-menu-link">Messenger</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a href="#" class="pure-menu-link">Sports</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a href="#" class="pure-menu-link">Finance</a>
+                </li>
+                <li class="pure-menu-item pure-menu-has-children">
+                    <a href="#" id="menuLink1" class="pure-menu-link">More</a>
+                    <ul class="pure-menu-children">
+                        <li class="pure-menu-item">
+                            <a href="#" class="pure-menu-link">Autos</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="#" class="pure-menu-link">Flickr</a>
+                        </li>
+                        <li class="pure-menu-item pure-menu-has-children">
+                            <a href="#" id="menuLink1" class="pure-menu-link">Even More</a>
+                            <ul class="pure-menu-children">
+                                <li class="pure-menu-item">
+                                    <a href="#" class="pure-menu-link">Foo</a>
+                                </li>
+                                <li class="pure-menu-item">
+                                    <a href="#" class="pure-menu-link">Bar</a>
+                                </li>
+                                <li class="pure-menu-item">
+                                    <a href="#" class="pure-menu-link">Baz</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    
-        <div class="footer" id="footer">
-            <div class="footer-content">
-                <div>Všechna práva vyhrazena.</div>
-            </div>
+    </div>
+
+    <div class="footer" id="footer">
+        <div class="footer-content">
+            <div>Všechna práva vyhrazena.</div>
         </div>
-    
-        <script>
-            function toggleSidebar() {
-                document.getElementById('sidebar').classList.toggle('collapsed');
-                document.getElementById('footer').classList.toggle('sidebar-collapsed');
-            }
-        </script>
-    </body>
-    
-    </html>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('collapsed');
+            document.getElementById('footer').classList.toggle('sidebar-collapsed');
+        }
+    </script>
+</body>
+
+</html>
