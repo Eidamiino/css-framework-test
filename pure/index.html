@@ -194,7 +194,13 @@
                         </div>
                         <div class="pure-g card">
                             <div class="pure-form">
-                                <input type="text" placeholder="Test">
+                                <div class="input-icon-wrapper">
+                                    <div class="input-icon-container">
+                                        <i class="input-icon fas fa-envelope"></i>
+                                    </div>
+                                    <input type="email" class="pure-input input-with-icon" placeholder="Email">
+
+                                </div>
                             </div>
                             <div>
                                 <button class="pure-button pure-button-primary ripple">Ripple</button>
@@ -224,56 +230,47 @@
             const sidebar = document.getElementById('sidebar');
             const mainContent = document.getElementById('main');
 
-            if (sidebar.classList.contains('pure-u-1-8')) {
-                sidebar.classList.remove('pure-u-1-8');
-                sidebar.classList.add('pure-u-1-24', 'collapsed');
-                mainContent.classList.remove('pure-u-7-8');
-                mainContent.classList.add('pure-u-23-24');
-            } else {
-                sidebar.classList.remove('pure-u-1-24', 'collapsed');
-                sidebar.classList.add('pure-u-1-8');
-                mainContent.classList.remove('pure-u-23-24');
-                mainContent.classList.add('pure-u-7-8');
-            }
+            const isCollapsed = sidebar.classList.contains('pure-u-1-8');
+            sidebar.classList.toggle('pure-u-1-8', !isCollapsed);
+            sidebar.classList.toggle('pure-u-1-24', isCollapsed);
+            sidebar.classList.toggle('collapsed', isCollapsed);
+            mainContent.classList.toggle('pure-u-7-8', !isCollapsed);
+            mainContent.classList.toggle('pure-u-23-24', isCollapsed);
         }
 
+        const loaderLine = document.getElementById('loaderLine');
+        const loadingButton = document.getElementById('loadingButton');
+        let isLoading = false;
 
-            const loaderLine = document.getElementById('loaderLine');
-            const loadingButton = document.getElementById('loadingButton');
-            let isLoading = false;
+        loadingButton.addEventListener('click', () => {
+            if (!isLoading) {
+                loaderLine.classList.add('active');
+                isLoading = true;
+            } else {
+                loaderLine.classList.remove('active');
+                isLoading = false;
+            }
+        });
 
-            loaderLine.addEventListener('animationend', () => {
-                if (!isLoading) {
-                    loaderLine.classList.remove('active');
-                } else {
-                    loaderLine.classList.add('infinite');
-                }
-            });
+        function initializeToastr() {
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-bottom-right',
+                timeOut: '3000',
+            };
+        }
 
-            loadingButton.addEventListener('click', () => {
-                if (!isLoading) {
-                    loaderLine.classList.add('active', 'infinite');
-                    isLoading = true;
-                } else {
-                    loaderLine.classList.remove('infinite');
-                    isLoading = false;
-                }
-            });
+        function showToast(message = "Connection established.") {
+            toastr.success(message);
+        }
 
+        $(document).ready(function () {
+            initializeToastr();
 
-            $(document).ready(function () {
-                    toastr.options = {
-                        "closeButton": true,
-                        "progressBar": true,
-                        "positionClass": "toast-bottom-right",
-                        "timeOut": "3000"
-                    };
-
-                    $("#show-toast").click(function () {
-                        toastr.success("Connection established.");
-                    });
-                });
-
+            const toastButton = document.getElementById('show-toast');
+            toastButton.addEventListener('click', () => showToast());
+        });
     </script>
 </body>
 
