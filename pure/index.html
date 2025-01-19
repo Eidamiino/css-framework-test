@@ -242,15 +242,23 @@
         const loadingButton = document.getElementById('loadingButton');
         let isLoading = false;
 
-        loadingButton.addEventListener('click', () => {
-            if (!isLoading) {
-                loaderLine.classList.add('active');
-                isLoading = true;
-            } else {
-                loaderLine.classList.remove('active');
-                isLoading = false;
-            }
-        });
+        loaderLine.addEventListener('animationend', () => {
+                if (!isLoading) {
+                    loaderLine.classList.remove('active');
+                } else {
+                    loaderLine.classList.add('infinite');
+                }
+            });
+
+            loadingButton.addEventListener('click', () => {
+                if (!isLoading) {
+                    loaderLine.classList.add('active', 'infinite');
+                    isLoading = true;
+                } else {
+                    loaderLine.classList.remove('infinite');
+                    isLoading = false;
+                }
+            });
 
         function initializeToastr() {
             toastr.options = {

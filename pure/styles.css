@@ -187,15 +187,15 @@ img {
 }
 
 .loader-line.active:before {
-    -webkit-animation: lineAnim 1s linear;
-    -moz-animation: lineAnim 1s linear;
-    animation: lineAnim 1s linear;
+    -webkit-animation: lineAnim 1.5s linear;
+    -moz-animation: lineAnim 1.5s linear;
+    animation: lineAnim 1.5s linear;
 }
 
 .loader-line.infinite:before {
-    -webkit-animation: lineAnim 1s linear infinite;
-    -moz-animation: lineAnim 1s linear infinite;
-    animation: lineAnim 1s linear infinite;
+    -webkit-animation: lineAnim 1.5s linear infinite;
+    -moz-animation: lineAnim 1.5s linear infinite;
+    animation: lineAnim 1.5s linear infinite;
 }
 
 @keyframes lineAnim {
