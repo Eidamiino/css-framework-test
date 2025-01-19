@@ -7,13 +7,20 @@
     <title>Pure.CSS Grid Layout</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/3.0.0/pure-min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 </head>
 
 <body>
     <div class="layout-wrapper">
         <div class="header">
+            <div class="loader-line" id="loaderLine"></div>
+
             <div class="pure-g">
                 <div class="pure-u-1-2">
                     <div class="header-left">
@@ -192,6 +199,13 @@
                             <div>
                                 <button class="pure-button pure-button-primary ripple">Ripple</button>
                             </div>
+                            <div>
+                                <button class="pure-button pure-button-primary loading-button"
+                                    id="loadingButton">Loading</button>
+                            </div>
+                            <div>
+                                <button class="pure-button pure-button-primary" id="show-toast">Toastr</button>
+                            </div>
                         </div>
                     </div>
 
@@ -222,6 +236,44 @@
                 mainContent.classList.add('pure-u-7-8');
             }
         }
+
+
+            const loaderLine = document.getElementById('loaderLine');
+            const loadingButton = document.getElementById('loadingButton');
+            let isLoading = false;
+
+            loaderLine.addEventListener('animationend', () => {
+                if (!isLoading) {
+                    loaderLine.classList.remove('active');
+                } else {
+                    loaderLine.classList.add('infinite');
+                }
+            });
+
+            loadingButton.addEventListener('click', () => {
+                if (!isLoading) {
+                    loaderLine.classList.add('active', 'infinite');
+                    isLoading = true;
+                } else {
+                    loaderLine.classList.remove('infinite');
+                    isLoading = false;
+                }
+            });
+
+
+            $(document).ready(function () {
+                    toastr.options = {
+                        "closeButton": true,
+                        "progressBar": true,
+                        "positionClass": "toast-bottom-right",
+                        "timeOut": "3000"
+                    };
+
+                    $("#show-toast").click(function () {
+                        toastr.success("Connection established.");
+                    });
+                });
+
     </script>
 </body>
 
