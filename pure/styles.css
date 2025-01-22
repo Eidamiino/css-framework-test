@@ -24,6 +24,7 @@ body {
     height: 3rem;
     z-index: 100;
     background: white;
+    border-bottom: 1px solid #ccc;
 }
 
 .header .pure-menu {
@@ -116,6 +117,7 @@ img {
     bottom: 0;
     height: 3rem;
     background: white;
+    border-top: 1px solid #ccc;
 }
 
 .footer-content {
@@ -249,4 +251,9 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.pure-menu-heading{
+    display: flex;
+    align-items: center;
 }
