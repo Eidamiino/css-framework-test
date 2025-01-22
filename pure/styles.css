@@ -105,6 +105,7 @@ img {
 
 .main-content {
     padding: 1.5rem;
+    position: relative;
 }
 
 .main-content .pure-g {
@@ -156,11 +157,10 @@ img {
     transition: background 0s;
 }
 
-
 .loader-line {
     width: 100%;
     height: 3px;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     overflow: hidden;

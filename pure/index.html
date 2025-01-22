@@ -19,7 +19,7 @@
 <body>
     <div class="layout-wrapper">
         <div class="header">
-            <div class="loader-line" id="loaderLine"></div>
+            <!-- <div class="loader-line" id="loaderLine"></div> -->
 
             <div class="pure-g">
                 <div class="pure-u-1-2">
@@ -90,6 +90,7 @@
 
                 <div class="pure-u-7-8 main" id="main">
                     <div class="main-content">
+                        <div class="loader-line" id="loaderLine"></div>
                         <div class="pure-g card">
                             <div class="pure-u-1-2 pure-form">
                                 <input type="text" placeholder="Vyberte čas">
@@ -246,24 +247,25 @@
         const loaderLine = document.getElementById('loaderLine');
         const loadingButton = document.getElementById('loadingButton');
         let isLoading = false;
+        let stopRequest = false;
 
-        loaderLine.addEventListener('animationend', () => {
-            if (!isLoading) {
-                loaderLine.classList.remove('active');
-            } else {
-                loaderLine.classList.add('infinite');
-            }
-        });
+        loaderLine.addEventListener('animationiteration', () => {
+                if (stopRequest) {
+                    loaderLine.classList.remove('infinite');
+                    loaderLine.classList.remove('active');
+                    stopRequest = false;
+                }
+            });
 
         loadingButton.addEventListener('click', () => {
-            if (!isLoading) {
-                loaderLine.classList.add('active', 'infinite');
-                isLoading = true;
-            } else {
-                loaderLine.classList.remove('infinite');
-                isLoading = false;
-            }
-        });
+                if (!isLoading) {
+                    loaderLine.classList.add('active', 'infinite');
+                    isLoading = true;
+                } else {
+                    stopRequest = true;
+                    isLoading = false;
+                }
+            });
 
         function initializeToastr() {
             toastr.options = {
