@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure.CSS Grid Layout</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/3.0.0/pure-min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+</head>
+
+<body>
+  <div class="layout-wrapper">
+    <div class="header">
+      <!-- <div class="loader-line" id="loaderLine"></div> -->
+
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div class="header-left">
+            <button class="hamburger-btn" onclick="toggleSidebar()">
+              <i class="fas fa-bars"></i>
+            </button>
+            <a href="#" class="pure-menu-heading">
+              <img class="pure-image" src="/logo-ge-ce-pe-1559b7af.svg" alt="gcp">
+              <span>Dokumenty</span>
+            </a>
+          </div>
+        </div>
+        <div class="pure-u-1-2">
+          <div class="header-right">
+            <a href="#" class="pure-menu-link">email@email.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="pure-g">
+        <div class="pure-u-1-8 sidebar" id="sidebar">
+          <div class="pure-menu pure-menu-vertical">
+            <ul class="pure-menu-list">
+              <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">
+                  <i class="fas fa-dashboard"></i><span>Nástěnka</span>
+                </a>
+              </li>
+              <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">
+                  <i class="fas fa-file"></i><span>Dokumenty</span>
+                </a>
+              </li>
+              <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">
+                  <i class="fas fa-layer-group"></i><span>Zařazení</span>
+                </a>
+              </li>
+              <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">
+                  <i class="fas fa-list"></i><span>Umístění</span>
+                </a>
+              </li>
+              <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">
+                  <i class="fas fa-users-viewfinder"></i><span>Objekty</span>
+                </a>
+              </li>
+              <li class="pure-menu-item pure-menu-has-children">
+                <a href="#" id="menuLink1" class="pure-menu-link">
+                  <i class="fas fa-cogs"></i><span>Administrace</span>
+                </a>
+                <ul class="pure-menu-children">
+                  <li class="pure-menu-item">
+                    <a href="#" class="pure-menu-link">Autos</a>
+                  </li>
+                  <li class="pure-menu-item">
+                    <a href="#" class="pure-menu-link">Flickr</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pure-u-7-8 main" id="main">
+          <div class="main-content">
+            <div class="loader-line" id="loaderLine"></div>
+            <div class="pure-g card">
+              <div class="pure-u-1-2 pure-form">
+                <input type="text" placeholder="Vyberte čas">
+              </div>
+              <div class="pure-u-1-2" style="text-align: right;">
+                <button class="pure-button pure-button-primary">Obnovit</button>
+              </div>
+            </div>
+
+            <div class="pure-g card">
+              <div class="pure-u-1-3 pure-u-lg-1-4 pure-u-xl-1-8">
+                <div class="box">Počet dokumentů</div>
+              </div>
+              <div class="pure-u-1-3 pure-u-lg-1-4 pure-u-xl-1-8">
+                <div class="box">Počet obrazcu</div>
+              </div>
+              <div class="pure-u-1-3 pure-u-lg-1-4 pure-u-xl-1-8">
+                <div class="box">Počet velkolepych panu</div>
+              </div>
+            </div>
+
+            <div class="pure-g card">
+              <div class="pure-u-1-2">
+                <table class="pure-table pure-table-horizontal">
+                  <thead>
+                    <tr>
+                      <th>Katalog</th>
+                      <th>Kód</th>
+                      <th>Název</th>
+                      <th>Počet stažení</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Správa ŽP</td>
+                      <td>AAAAA</td>
+                      <td>Připomínky a návrhy na změnu rozcestníku</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>Správa ŽP</td>
+                      <td>AAAAA</td>
+                      <td>Připomínky a návrhy na změnu rozcestníku</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>Správa ŽP</td>
+                      <td>AAAAA</td>
+                      <td>Připomínky a návrhy na změnu rozcestníku</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>Správa ŽP</td>
+                      <td>AAAAA</td>
+                      <td>Připomínky a návrhy na změnu rozcestníku</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>Správa ŽP</td>
+                      <td>AAAAA</td>
+                      <td>Připomínky a návrhy na změnu rozcestníku</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>Správa ŽP</td>
+                      <td>AAAAA</td>
+                      <td>Připomínky a návrhy na změnu rozcestníku</td>
+                      <td>4</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+              <div class="pure-u-1-2">
+                <table class="pure-table pure-table-horizontal">
+                  <thead>
+                    <tr>
+                      <th>Katalog</th>
+                      <th>Kód</th>
+                      <th>Název</th>
+                      <th>Počet stažení</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Správa ŽP</td>
+                      <td>AAAAA</td>
+                      <td>Připomínky a návrhy na změnu rozcestníku</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>Správa ŽP</td>
+                      <td>AAAAA</td>
+                      <td>Připomínky a návrhy na změnu rozcestníku</td>
+                      <td>4</td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="pure-g card">
+              <div class="pure-form">
+                <div class="input-icon-wrapper">
+                  <div class="input-icon-container">
+                    <i class="input-icon fas fa-envelope"></i>
+                  </div>
+                  <input type="email" class="pure-input input-with-icon" placeholder="Email">
+
+                </div>
+              </div>
+              <div>
+                <button class="pure-button pure-button-primary ripple">Ripple</button>
+              </div>
+              <div>
+                <button class="pure-button pure-button-primary loading-button" id="loadingButton">Loading</button>
+              </div>
+              <div>
+                <button class="pure-button pure-button-primary" id="show-toast">Toastr</button>
+              </div>
+
+              <div class="icheck-primary">
+                <input type="checkbox" id="someCheckboxId" />
+                <label for="someCheckboxId">i-check</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="pure-g">
+            <div class="footer pure-u-7-8" id="footer">
+              <div class="footer-content">
+                Všechna práva vyhrazena.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const mainContent = document.getElementById('main');
+      const footer = document.getElementById('footer');
+
+      const isCollapsed = sidebar.classList.contains('pure-u-1-8');
+      sidebar.classList.toggle('pure-u-1-8', !isCollapsed);
+      sidebar.classList.toggle('pure-u-1-24', isCollapsed);
+      sidebar.classList.toggle('collapsed', isCollapsed);
+      mainContent.classList.toggle('pure-u-7-8', !isCollapsed);
+      mainContent.classList.toggle('pure-u-23-24', isCollapsed);
+      footer.classList.toggle('pure-u-7-8', !isCollapsed);
+      footer.classList.toggle('pure-u-23-24', isCollapsed);
+    }
+
+    const loaderLine = document.getElementById('loaderLine');
+    const loadingButton = document.getElementById('loadingButton');
+    let isLoading = false;
+    let stopRequest = false;
+
+    loaderLine.addEventListener('animationiteration', () => {
+      if (stopRequest) {
+        loaderLine.classList.remove('infinite');
+        loaderLine.classList.remove('active');
+        stopRequest = false;
+      }
+    });
+
+    loadingButton.addEventListener('click', () => {
+      if (!isLoading) {
+        loaderLine.classList.add('active', 'infinite');
+        isLoading = true;
+      } else {
+        stopRequest = true;
+        isLoading = false;
+      }
+    });
+
+    function initializeToastr() {
+      toastr.options = {
+        closeButton: true,
+        progressBar: true,
+        positionClass: 'toast-bottom-right',
+        timeOut: '3000',
+      };
+    }
+
+    function showToast(message = "Connection established.") {
+      toastr.success(message);
+    }
+
+    $(document).ready(function () {
+      initializeToastr();
+
+      const toastButton = document.getElementById('show-toast');
+      toastButton.addEventListener('click', () => showToast());
+    });
+  </script>
+</body>
+
+</html>
