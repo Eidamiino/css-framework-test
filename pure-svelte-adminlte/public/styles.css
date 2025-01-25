@@ -278,13 +278,11 @@ label {
 }
 
 .icheck-primary input[type="checkbox"] {
-    /* appearance: none; */
     width: 18px;
     height: 18px;
     border: 2px solid #007bff;
     border-radius: 3px;
     outline: none;
-    background-color: #fff;
     cursor: pointer;
     position: relative;
 }
@@ -302,7 +300,6 @@ label {
     transform: translate(-50%, -50%);
     width: 10px;
     height: 10px;
-    background-color: #fff;
     border-radius: 2px;
 }
 
@@ -313,4 +310,9 @@ label {
 .icheck-primary label {
     margin-left: 6px;
     cursor: pointer;
+}
+
+.svelte-select{
+    margin-left: 1rem!important;
+    margin-right: 1rem!important;
 }

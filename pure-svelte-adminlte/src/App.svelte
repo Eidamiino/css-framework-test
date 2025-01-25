@@ -1,5 +1,6 @@
 <script>
   import toastr from "toastr";
+  import Select from "svelte-select";
 
   let isSidebarCollapsed = false;
 
@@ -35,6 +36,14 @@
   function showToast() {
     toastr.success("Connection established.");
   }
+
+  let options = [
+    { label: 'Option1', value: 1 },
+    { label: 'Option2', value: 2 },
+    { label: 'Option3', value: 3 },
+  ];
+  let selectedOption=options[0];
+
 </script>
 
 <div class="layout-wrapper">
@@ -245,6 +254,10 @@
             <div class="icheck-primary">
               <input type="checkbox" id="someCheckboxId" />
               <label for="someCheckboxId">i-check</label>
+            </div>
+
+            <div>
+              <Select bind:value={selectedOption} items={options} placeholder="Select" class="svelte-select"></Select>
             </div>
           </div>
         </div>
