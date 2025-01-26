@@ -1,4 +1,4 @@
-name: [DEV] Build&Deploy
+name: "[DEV] Build&Deploy"
 on:
   push:
     branches:
