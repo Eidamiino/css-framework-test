@@ -38,12 +38,11 @@
   }
 
   let options = [
-    { label: 'Option1', value: 1 },
-    { label: 'Option2', value: 2 },
-    { label: 'Option3', value: 3 },
+    { label: "Option1", value: 1 },
+    { label: "Option2", value: 2 },
+    { label: "Option3", value: 3 },
   ];
-  let selectedOption=options[0];
-
+  let selectedOption = options[0];
 </script>
 
 <div class="layout-wrapper">
@@ -74,7 +73,12 @@
 
   <div class="content-wrapper">
     <div class="pure-g">
-      <div class="sidebar {isSidebarCollapsed ? 'pure-u-1-24 collapsed' : 'pure-u-1-8'}" id="sidebar">
+      <div
+        class="sidebar {isSidebarCollapsed
+          ? 'pure-u-1-24 collapsed'
+          : 'pure-u-1-8'}"
+        id="sidebar"
+      >
         <div class="pure-menu pure-menu-vertical">
           <ul class="pure-menu-list">
             <li class="pure-menu-item">
@@ -119,9 +123,16 @@
         </div>
       </div>
 
-      <div class="main {isSidebarCollapsed ? 'pure-u-23-24' : 'pure-u-7-8'}" id="main">
+      <div
+        class="main {isSidebarCollapsed ? 'pure-u-23-24' : 'pure-u-7-8'}"
+        id="main"
+      >
         <div class="main-content">
-          <div class="loader-line {isLoading ? 'active infinite' : ''}" id="loaderLine" on:animationiteration={handleAnimationIteration}></div>
+          <div
+            class="loader-line {isLoading ? 'active infinite' : ''}"
+            id="loaderLine"
+            on:animationiteration={handleAnimationIteration}
+          ></div>
           <div class="pure-g card">
             <div class="pure-u-1-2 pure-form">
               <input type="text" placeholder="Vyberte čas" />
@@ -141,6 +152,46 @@
             <div class="pure-u-1-3 pure-u-lg-1-4 pure-u-xl-1-8">
               <div class="box">Počet velkolepych panu</div>
             </div>
+          </div>
+
+          <div class="pure-g card">
+            <table>
+              <caption>Statement Summary</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Account</th>
+                  <th scope="col">Due Date</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Period</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Account">Visa - 3412</td>
+                  <td data-label="Due Date">04/01/2016</td>
+                  <td data-label="Amount">$1,190</td>
+                  <td data-label="Period">03/01/2016 - 03/31/2016</td>
+                </tr>
+                <tr>
+                  <td scope="row" data-label="Account">Visa - 6076</td>
+                  <td data-label="Due Date">03/01/2016</td>
+                  <td data-label="Amount">$2,443</td>
+                  <td data-label="Period">02/01/2016 - 02/29/2016</td>
+                </tr>
+                <tr>
+                  <td scope="row" data-label="Account">Corporate AMEX</td>
+                  <td data-label="Due Date">03/01/2016</td>
+                  <td data-label="Amount">$1,181</td>
+                  <td data-label="Period">02/01/2016 - 02/29/2016</td>
+                </tr>
+                <tr>
+                  <td scope="row" data-label="Acount">Visa - 3412</td>
+                  <td data-label="Due Date">02/01/2016</td>
+                  <td data-label="Amount">$842</td>
+                  <td data-label="Period">01/01/2016 - 01/31/2016</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           <div class="pure-g card">
@@ -242,12 +293,15 @@
             <div>
               <button
                 class="pure-button pure-button-primary loading-button"
-                id="loadingButton" on:click={toggleLoading}>Loading</button
+                id="loadingButton"
+                on:click={toggleLoading}>Loading</button
               >
             </div>
             <div>
-              <button class="pure-button pure-button-primary" id="show-toast" on:click={showToast}
-                >Toastr</button
+              <button
+                class="pure-button pure-button-primary"
+                id="show-toast"
+                on:click={showToast}>Toastr</button
               >
             </div>
 
@@ -257,13 +311,21 @@
             </div>
 
             <div>
-              <Select bind:value={selectedOption} items={options} placeholder="Select" class="svelte-select"></Select>
+              <Select
+                bind:value={selectedOption}
+                items={options}
+                placeholder="Select"
+                class="svelte-select"
+              ></Select>
             </div>
           </div>
         </div>
 
         <div class="pure-g">
-          <div class="footer {isSidebarCollapsed ? 'pure-u-23-24' : 'pure-u-7-8'}" id="footer">
+          <div
+            class="footer {isSidebarCollapsed ? 'pure-u-23-24' : 'pure-u-7-8'}"
+            id="footer"
+          >
             <div class="footer-content">Všechna práva vyhrazena.</div>
           </div>
         </div>
