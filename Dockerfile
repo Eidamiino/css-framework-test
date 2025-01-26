@@ -26,10 +26,7 @@ COPY ./poc/public ./public
 
 COPY ./poc/src ./src
 
-RUN ls -lah
-
 RUN npm run ${NPM_SCRIPT}
-
 
 #  ███████╗██╗███╗   ██╗ █████╗ ██╗     
 #  ██╔════╝██║████╗  ██║██╔══██╗██║     
