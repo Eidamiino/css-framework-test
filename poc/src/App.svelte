@@ -147,7 +147,7 @@
               <div class="box">Počet dokumentů</div>
             </div>
             <div class="pure-u-1-3 pure-u-lg-1-4 pure-u-xl-1-8">
-              <div class="box">Počet obrazcu</div>
+              <div class="box">Počet obrazců</div>
             </div>
             <div class="pure-u-1-3 pure-u-lg-1-4 pure-u-xl-1-8">
               <div class="box">Počet velkolepych panu</div>
