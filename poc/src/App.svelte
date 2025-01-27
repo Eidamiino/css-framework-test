@@ -273,7 +273,7 @@
             </div>
           </div>
           <div class="pure-g card">
-            <div class="pure-form">
+            <div class="pure-form centered-container">
               <div class="input-icon-wrapper">
                 <div class="input-icon-container">
                   <i class="input-icon fas fa-envelope"></i>
@@ -285,19 +285,19 @@
                 />
               </div>
             </div>
-            <div>
+            <div class="centered-container">
               <button class="pure-button pure-button-primary ripple"
                 >Ripple</button
               >
             </div>
-            <div>
+            <div class="centered-container">
               <button
                 class="pure-button pure-button-primary loading-button"
                 id="loadingButton"
                 on:click={toggleLoading}>Loading</button
               >
             </div>
-            <div>
+            <div class="centered-container">
               <button
                 class="pure-button pure-button-primary"
                 id="show-toast"
@@ -305,7 +305,7 @@
               >
             </div>
 
-            <div class="icheck-primary">
+            <div class="icheck-primary centered-container">
               <input type="checkbox" id="someCheckboxId" />
               <label for="someCheckboxId">i-check</label>
             </div>
