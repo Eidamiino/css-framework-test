@@ -71,7 +71,7 @@
           <a href="#" class="pure-menu-heading">
             <img
               class="pure-image"
-              src="/logo-ge-ce-pe-1559b7af.svg"
+              src=""
               alt="gcp"
             />
             <span>Dokumenty</span>
