@@ -72,7 +72,7 @@
             <img
               class="pure-image"
               src=""
-              alt="gcp"
+              alt=""
             />
             <span>Dokumenty</span>
           </a>
