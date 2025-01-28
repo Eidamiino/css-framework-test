@@ -1,12 +1,27 @@
 <script>
   import toastr from "toastr";
   import Select from "svelte-select";
+  import { onMount } from "svelte";
+
 
   let isSidebarCollapsed = false;
 
   function toggleSidebar() {
     isSidebarCollapsed = !isSidebarCollapsed;
   }
+
+  onMount(() => {
+    const handleResize = () => {
+      isSidebarCollapsed = window.innerWidth < 1200;
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   let isLoading = false;
   let stopRequest = false;
