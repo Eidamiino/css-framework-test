@@ -135,6 +135,13 @@ img {
     margin: 0 0 0.5rem 0;
 }
 
+.card-header {
+    margin: -0.5rem -0.5rem 0.5rem -0.5rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
 .box {
     border: 1px solid #ccc;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
