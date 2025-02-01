@@ -73,6 +73,13 @@ img {
     min-height: 100vh;
 }
 
+.sidebar.overlay {
+    position: fixed;
+    top: 49px;
+    height: calc(100vh - 49px);
+    z-index: 1000;
+}
+
 .sidebar .pure-menu {
     background: transparent;
     overflow: hidden;

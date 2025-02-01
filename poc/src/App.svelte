@@ -3,25 +3,53 @@
   import Select from "svelte-select";
   import { onMount } from "svelte";
 
+  let isSidebarCollapsed = window.innerWidth < 1400;
+let isMobile = window.innerWidth < 800;
 
-  let isSidebarCollapsed = false;
+function toggleSidebar() {
+  isSidebarCollapsed = !isSidebarCollapsed;
+  updateSidebarClass();
+}
 
-  function toggleSidebar() {
-    isSidebarCollapsed = !isSidebarCollapsed;
+function updateSidebarClass() {
+  const sidebar = document.getElementById("sidebar");
+  const main = document.getElementById("main");
+  const footer = document.getElementById("footer");
+
+  if (isMobile) {
+    if (isSidebarCollapsed) {
+      sidebar.className = "sidebar hidden";
+    } else {
+      sidebar.className = "sidebar pure-u-11-12 overlay";
+    }
+
+    main.className = "main pure-u-1";
+    footer.className = "footer pure-u-1";
+
+  } else {
+    sidebar.className = `sidebar ${isSidebarCollapsed ? "pure-u-1-24 collapsed" : "pure-u-1-8"}`;
+    main.className = `main ${isSidebarCollapsed ? "pure-u-23-24" : "pure-u-7-8"}`;
+    footer.className = `footer ${isSidebarCollapsed ? "pure-u-23-24" : "pure-u-7-8"}`;
   }
+}
 
-  onMount(() => {
-    const handleResize = () => {
-      isSidebarCollapsed = window.innerWidth < 1200;
-    };
+onMount(() => {
+  const handleResize = () => {
+    isMobile = window.innerWidth < 800;
+    isSidebarCollapsed = window.innerWidth < 1400;
 
-    window.addEventListener("resize", handleResize);
-    handleResize();
+    updateSidebarClass();
+  };
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
+  window.addEventListener("resize", handleResize);
+  handleResize();
+
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+});
+
+
 
   let isLoading = false;
   let stopRequest = false;
@@ -69,11 +97,7 @@
             <i class="fas fa-bars"></i>
           </button>
           <a href="#" class="pure-menu-heading">
-            <img
-              class="pure-image"
-              src=""
-              alt=""
-            />
+            <img class="pure-image" src="" alt="" />
             <span>Dokumenty</span>
           </a>
         </div>
@@ -88,12 +112,13 @@
 
   <div class="content-wrapper">
     <div class="pure-g">
-      <div
+      <!-- <div
         class="sidebar {isSidebarCollapsed
           ? 'pure-u-1-24 collapsed'
           : 'pure-u-1-8'}"
         id="sidebar"
-      >
+      > -->
+      <div class="sidebar pure-u-1-8" id="sidebar">
         <div class="pure-menu pure-menu-vertical">
           <ul class="pure-menu-list">
             <li class="pure-menu-item">
@@ -138,10 +163,11 @@
         </div>
       </div>
 
-      <div
+      <!-- <div
         class="main {isSidebarCollapsed ? 'pure-u-23-24' : 'pure-u-7-8'}"
         id="main"
-      >
+      > -->
+      <div class="main pure-u-7-8" id="main">
         <div class="main-content">
           <div
             class="loader-line {isLoading ? 'active infinite' : ''}"
@@ -288,9 +314,7 @@
             </div>
           </div>
           <div class="pure-g card">
-            <div class="pure-u-1 card-header">
-              Button experiments
-            </div>
+            <div class="pure-u-1 card-header">Button experiments</div>
             <div class="pure-form centered-container">
               <div class="input-icon-wrapper">
                 <div class="input-icon-container">
@@ -340,10 +364,11 @@
         </div>
 
         <div class="pure-g">
-          <div
+          <!-- <div
             class="footer {isSidebarCollapsed ? 'pure-u-23-24' : 'pure-u-7-8'}"
             id="footer"
-          >
+          > -->
+          <div class="footer pure-u-7-8" id="footer">
             <div class="footer-content">Všechna práva vyhrazena.</div>
           </div>
         </div>
