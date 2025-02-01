@@ -2,54 +2,52 @@
   import toastr from "toastr";
   import Select from "svelte-select";
   import { onMount } from "svelte";
+  import SidebarModal from "./lib/SidebarModal.svelte";
 
   let isSidebarCollapsed = window.innerWidth < 1400;
-let isMobile = window.innerWidth < 800;
+  let isMobile = window.innerWidth < 800;
 
-function toggleSidebar() {
-  isSidebarCollapsed = !isSidebarCollapsed;
-  updateSidebarClass();
-}
-
-function updateSidebarClass() {
-  const sidebar = document.getElementById("sidebar");
-  const main = document.getElementById("main");
-  const footer = document.getElementById("footer");
-
-  if (isMobile) {
-    if (isSidebarCollapsed) {
-      sidebar.className = "sidebar hidden";
-    } else {
-      sidebar.className = "sidebar pure-u-11-12 overlay";
-    }
-
-    main.className = "main pure-u-1";
-    footer.className = "footer pure-u-1";
-
-  } else {
-    sidebar.className = `sidebar ${isSidebarCollapsed ? "pure-u-1-24 collapsed" : "pure-u-1-8"}`;
-    main.className = `main ${isSidebarCollapsed ? "pure-u-23-24" : "pure-u-7-8"}`;
-    footer.className = `footer ${isSidebarCollapsed ? "pure-u-23-24" : "pure-u-7-8"}`;
-  }
-}
-
-onMount(() => {
-  const handleResize = () => {
-    isMobile = window.innerWidth < 800;
-    isSidebarCollapsed = window.innerWidth < 1400;
-
+  function toggleSidebar() {
+    isSidebarCollapsed = !isSidebarCollapsed;
     updateSidebarClass();
-  };
+  }
 
-  window.addEventListener("resize", handleResize);
-  handleResize();
+  function updateSidebarClass() {
+    const sidebar = document.getElementById("sidebar");
+    const main = document.getElementById("main");
+    const footer = document.getElementById("footer");
 
-  return () => {
-    window.removeEventListener("resize", handleResize);
-  };
-});
+    if (isMobile) {
+      if (isSidebarCollapsed) {
+        sidebar.className = "sidebar hidden";
+      } else {
+        sidebar.className = "sidebar pure-u-11-12 overlay";
+      }
 
+      main.className = "main pure-u-1";
+      footer.className = "footer pure-u-1";
+    } else {
+      sidebar.className = `sidebar ${isSidebarCollapsed ? "pure-u-1-24 collapsed" : "pure-u-1-8"}`;
+      main.className = `main ${isSidebarCollapsed ? "pure-u-23-24" : "pure-u-7-8"}`;
+      footer.className = `footer ${isSidebarCollapsed ? "pure-u-23-24" : "pure-u-7-8"}`;
+    }
+  }
 
+  onMount(() => {
+    const handleResize = () => {
+      isMobile = window.innerWidth < 800;
+      isSidebarCollapsed = window.innerWidth < 1400;
+
+      updateSidebarClass();
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   let isLoading = false;
   let stopRequest = false;
@@ -86,6 +84,16 @@ onMount(() => {
     { label: "Option3", value: 3 },
   ];
   let selectedOption = options[0];
+
+  let modalOpen = false;
+
+  function openModal() {
+    modalOpen = true;
+  }
+
+  function closeModal() {
+    modalOpen = false;
+  }
 </script>
 
 <div class="layout-wrapper">
@@ -174,6 +182,15 @@ onMount(() => {
             id="loaderLine"
             on:animationiteration={handleAnimationIteration}
           ></div>
+
+          <SidebarModal
+            bind:shown={modalOpen}
+            orientation="right"
+            on:close={closeModal}
+          >
+            <p>test testtesttest test</p>
+          </SidebarModal>
+
           <div class="pure-g card">
             <div class="pure-u-1-2 pure-form">
               <input type="text" placeholder="Vyberte čas" />
@@ -352,13 +369,20 @@ onMount(() => {
               <label for="someCheckboxId">i-check</label>
             </div>
 
-            <div>
+            <div class="centered-container">
               <Select
                 bind:value={selectedOption}
                 items={options}
                 placeholder="Select"
                 class="svelte-select"
               ></Select>
+            </div>
+
+            <div class="centered-container">
+              <button
+                class="pure-button pure-button-primary"
+                on:click={openModal}>Modal</button
+              >
             </div>
           </div>
         </div>
