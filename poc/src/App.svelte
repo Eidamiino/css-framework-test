@@ -94,6 +94,14 @@
   function closeModal() {
     modalOpen = false;
   }
+
+
+  let isSubmenuOpen = false;
+
+  function toggleMenu(event) {
+    event.preventDefault();
+    isSubmenuOpen = !isSubmenuOpen;
+  }
 </script>
 
 <div class="layout-wrapper">
@@ -154,16 +162,16 @@
                 <i class="fas fa-users-viewfinder"></i><span>Objekty</span>
               </a>
             </li>
-            <li class="pure-menu-item pure-menu-has-children">
-              <a href="#" id="menuLink1" class="pure-menu-link">
+            <li class="pure-menu-item pure-menu-has-children {isSubmenuOpen ? 'pure-menu-active' : ''}">
+              <a href="#" id="menuLink1" class="pure-menu-link" on:click={toggleMenu}>
                 <i class="fas fa-cogs"></i><span>Administrace</span>
               </a>
               <ul class="pure-menu-children">
                 <li class="pure-menu-item">
-                  <a href="#" class="pure-menu-link">Autos</a>
+                  <a href="#" class="pure-menu-link">Test 1</a>
                 </li>
                 <li class="pure-menu-item">
-                  <a href="#" class="pure-menu-link">Flickr</a>
+                  <a href="#" class="pure-menu-link">Test 2</a>
                 </li>
               </ul>
             </li>
