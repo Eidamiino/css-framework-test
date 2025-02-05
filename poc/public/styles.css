@@ -71,6 +71,7 @@ img {
 .sidebar {
     background-color: #700000;
     min-height: 100vh;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
 }
 
 .sidebar.overlay {
@@ -116,6 +117,10 @@ img {
 
 .sidebar.collapsed .pure-menu-link i {
     margin-right: 0;
+}
+
+.first-item {
+    margin-top: 0.5rem;
 }
 
 /*experimented with ellipses*/
@@ -389,7 +394,7 @@ table th {
 }
 
 @media screen and (max-width: 800px) {
-    :root{
+    :root {
         font-size: 18px;
     }
 
@@ -445,6 +450,7 @@ table th {
 .pure-menu-children {
     display: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding-left: 1rem;
 }
 
 .pure-menu-active>.pure-menu-children {
@@ -452,11 +458,19 @@ table th {
     width: 6rem;
 }
 
+.pure-menu-item {
+    position: relative;
+}
+
+.submenu-open {
+    display: block;
+}
+
 .pure-menu-children .pure-menu-link {
     color: black;
 }
 
-.sidebar .pure-menu-link{
+.sidebar .pure-menu-link {
     background-color: transparent;
 }
 
@@ -464,6 +478,25 @@ table th {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.pure-menu-active>.pure-menu-children .pure-menu-link:hover{
+.pure-menu-active>.pure-menu-children .pure-menu-link:hover {
     background-color: #F8F8F8;
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease;
+    margin: 0 0 0 0.5rem !important;
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    transition: max-height 0.2s ease, opacity 0.2s ease;
+    padding-left: 1rem;
+    opacity: 0;
+}
+
+.submenu-open{
+    opacity: 1;
 }

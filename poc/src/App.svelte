@@ -95,7 +95,6 @@
     modalOpen = false;
   }
 
-
   let isSubmenuOpen = false;
 
   function toggleMenu(event) {
@@ -137,7 +136,7 @@
       <div class="sidebar pure-u-1-8" id="sidebar">
         <div class="pure-menu pure-menu-vertical">
           <ul class="pure-menu-list">
-            <li class="pure-menu-item">
+            <li class="pure-menu-item first-item">
               <a href="#" class="pure-menu-link">
                 <i class="fas fa-dashboard"></i><span>Nástěnka</span>
               </a>
@@ -162,19 +161,25 @@
                 <i class="fas fa-users-viewfinder"></i><span>Objekty</span>
               </a>
             </li>
-            <li class="pure-menu-item pure-menu-has-children {isSubmenuOpen ? 'pure-menu-active' : ''}">
-              <a href="#" id="menuLink1" class="pure-menu-link" on:click={toggleMenu}>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link" on:click={toggleMenu}>
                 <i class="fas fa-cogs"></i><span>Administrace</span>
+                <i
+                  class="fas fa-chevron-down arrow-icon {isSubmenuOpen
+                    ? 'rotated'
+                    : ''}"
+                ></i>
               </a>
-              <ul class="pure-menu-children">
-                <li class="pure-menu-item">
-                  <a href="#" class="pure-menu-link">Test 1</a>
-                </li>
-                <li class="pure-menu-item">
-                  <a href="#" class="pure-menu-link">Test 2</a>
-                </li>
-              </ul>
             </li>
+
+            <ul class="submenu {isSubmenuOpen ? 'submenu-open' : ''}">
+              <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Test 1</a>
+              </li>
+              <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Test 2</a>
+              </li>
+            </ul>
           </ul>
         </div>
       </div>
