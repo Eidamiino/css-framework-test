@@ -68,11 +68,37 @@ img {
     margin-top: 3rem;
 }
 
+
 .sidebar {
     background-color: #700000;
     min-height: 100vh;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+
+    width: 250px;
+    min-width: 250px;
+    flex-shrink: 0;
 }
+
+.main {
+    display: flex;
+    min-width: 0;
+}
+
+.sidebar.collapsed {
+    transform: translateX(-250px);
+}
+
+.main.sidebar-collapsed {
+    margin-left: 0;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
 
 .sidebar.overlay {
     position: fixed;
@@ -497,6 +523,6 @@ table th {
     opacity: 0;
 }
 
-.submenu-open{
+.submenu-open {
     opacity: 1;
 }

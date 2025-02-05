@@ -4,6 +4,51 @@
   import { onMount } from "svelte";
   import SidebarModal from "./lib/SidebarModal.svelte";
 
+  // let isSidebarCollapsed = window.innerWidth < 1400;
+  // let isMobile = window.innerWidth < 800;
+
+  // function toggleSidebar() {
+  //   isSidebarCollapsed = !isSidebarCollapsed;
+  //   updateSidebarClass();
+  // }
+
+  // function updateSidebarClass() {
+  //   const sidebar = document.getElementById("sidebar");
+  //   const main = document.getElementById("main");
+  //   const footer = document.getElementById("footer");
+
+  //   if (isMobile) {
+  //     if (isSidebarCollapsed) {
+  //       sidebar.className = "sidebar hidden";
+  //     } else {
+  //       sidebar.className = "sidebar pure-u-11-12 overlay";
+  //     }
+
+  //     main.className = "main pure-u-1";
+  //     footer.className = "footer pure-u-1";
+  //   } else {
+  //     sidebar.className = `sidebar ${isSidebarCollapsed ? "pure-u-1-24 collapsed" : "pure-u-1-8"}`;
+  //     main.className = `main ${isSidebarCollapsed ? "pure-u-23-24" : "pure-u-7-8"}`;
+  //     footer.className = `footer ${isSidebarCollapsed ? "pure-u-23-24" : "pure-u-7-8"}`;
+  //   }
+  // }
+
+  // onMount(() => {
+  //   const handleResize = () => {
+  //     isMobile = window.innerWidth < 800;
+  //     isSidebarCollapsed = window.innerWidth < 1400;
+
+  //     updateSidebarClass();
+  //   };
+
+  //   window.addEventListener("resize", handleResize);
+  //   handleResize();
+
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // });
+
   let isSidebarCollapsed = window.innerWidth < 1400;
   let isMobile = window.innerWidth < 800;
 
@@ -15,21 +60,12 @@
   function updateSidebarClass() {
     const sidebar = document.getElementById("sidebar");
     const main = document.getElementById("main");
-    const footer = document.getElementById("footer");
 
     if (isMobile) {
-      if (isSidebarCollapsed) {
-        sidebar.className = "sidebar hidden";
-      } else {
-        sidebar.className = "sidebar pure-u-11-12 overlay";
-      }
-
-      main.className = "main pure-u-1";
-      footer.className = "footer pure-u-1";
+      sidebar.classList.toggle("overlay", !isSidebarCollapsed);
     } else {
-      sidebar.className = `sidebar ${isSidebarCollapsed ? "pure-u-1-24 collapsed" : "pure-u-1-8"}`;
-      main.className = `main ${isSidebarCollapsed ? "pure-u-23-24" : "pure-u-7-8"}`;
-      footer.className = `footer ${isSidebarCollapsed ? "pure-u-23-24" : "pure-u-7-8"}`;
+      sidebar.classList.toggle("collapsed", isSidebarCollapsed);
+      main.classList.toggle("sidebar-collapsed", isSidebarCollapsed);
     }
   }
 
@@ -126,14 +162,15 @@
   </div>
 
   <div class="content-wrapper">
-    <div class="pure-g">
+    <div class="row">
       <!-- <div
         class="sidebar {isSidebarCollapsed
           ? 'pure-u-1-24 collapsed'
           : 'pure-u-1-8'}"
         id="sidebar"
       > -->
-      <div class="sidebar pure-u-1-8" id="sidebar">
+      <!-- <div class="sidebar pure-u-1-8" id="sidebar">-->
+      <div class="sidebar" id="sidebar">
         <div class="pure-menu pure-menu-vertical">
           <ul class="pure-menu-list">
             <li class="pure-menu-item first-item">
@@ -184,11 +221,8 @@
         </div>
       </div>
 
-      <!-- <div
-        class="main {isSidebarCollapsed ? 'pure-u-23-24' : 'pure-u-7-8'}"
-        id="main"
-      > -->
-      <div class="main pure-u-7-8" id="main">
+      <!-- <div class="main pure-u-7-8" id="main"> -->
+      <div class="main" id="main">
         <div class="main-content">
           <div
             class="loader-line {isLoading ? 'active infinite' : ''}"
@@ -401,11 +435,8 @@
         </div>
 
         <div class="pure-g">
-          <!-- <div
-            class="footer {isSidebarCollapsed ? 'pure-u-23-24' : 'pure-u-7-8'}"
-            id="footer"
-          > -->
-          <div class="footer pure-u-7-8" id="footer">
+          <!-- <div class="footer pure-u-7-8" id="footer"> -->
+          <div class="footer" id="footer">
             <div class="footer-content">Všechna práva vyhrazena.</div>
           </div>
         </div>
