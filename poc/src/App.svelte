@@ -4,53 +4,9 @@
   import { onMount } from "svelte";
   import SidebarModal from "./lib/SidebarModal.svelte";
 
-  // let isSidebarCollapsed = window.innerWidth < 1400;
-  // let isMobile = window.innerWidth < 800;
-
-  // function toggleSidebar() {
-  //   isSidebarCollapsed = !isSidebarCollapsed;
-  //   updateSidebarClass();
-  // }
-
-  // function updateSidebarClass() {
-  //   const sidebar = document.getElementById("sidebar");
-  //   const main = document.getElementById("main");
-  //   const footer = document.getElementById("footer");
-
-  //   if (isMobile) {
-  //     if (isSidebarCollapsed) {
-  //       sidebar.className = "sidebar hidden";
-  //     } else {
-  //       sidebar.className = "sidebar pure-u-11-12 overlay";
-  //     }
-
-  //     main.className = "main pure-u-1";
-  //     footer.className = "footer pure-u-1";
-  //   } else {
-  //     sidebar.className = `sidebar ${isSidebarCollapsed ? "pure-u-1-24 collapsed" : "pure-u-1-8"}`;
-  //     main.className = `main ${isSidebarCollapsed ? "pure-u-23-24" : "pure-u-7-8"}`;
-  //     footer.className = `footer ${isSidebarCollapsed ? "pure-u-23-24" : "pure-u-7-8"}`;
-  //   }
-  // }
-
-  // onMount(() => {
-  //   const handleResize = () => {
-  //     isMobile = window.innerWidth < 800;
-  //     isSidebarCollapsed = window.innerWidth < 1400;
-
-  //     updateSidebarClass();
-  //   };
-
-  //   window.addEventListener("resize", handleResize);
-  //   handleResize();
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // });
-
   let isSidebarCollapsed = window.innerWidth < 1400;
   let isMobile = window.innerWidth < 800;
+  let isSidebarHidden = isSidebarCollapsed;
 
   function toggleSidebar() {
     isSidebarCollapsed = !isSidebarCollapsed;
@@ -66,10 +22,13 @@
     } else {
       sidebar.classList.toggle("collapsed", isSidebarCollapsed);
       main.classList.toggle("sidebar-collapsed", isSidebarCollapsed);
+      isSidebarHidden = sidebar.classList.contains("collapsed");
     }
   }
 
   onMount(() => {
+    const sidebar = document.getElementById("sidebar");
+
     const handleResize = () => {
       isMobile = window.innerWidth < 800;
       isSidebarCollapsed = window.innerWidth < 1400;
@@ -77,11 +36,30 @@
       updateSidebarClass();
     };
 
+    const handleMouseEnter = () => {
+      if (!isMobile && isSidebarCollapsed) {
+        sidebar.classList.remove("collapsed");
+        isSidebarHidden=false;
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (!isMobile && isSidebarCollapsed) {
+        sidebar.classList.add("collapsed");
+        isSidebarHidden=true;
+      }
+    };
+
     window.addEventListener("resize", handleResize);
+    sidebar.addEventListener("mouseenter", handleMouseEnter);
+    sidebar.addEventListener("mouseleave", handleMouseLeave);
+
     handleResize();
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      sidebar.removeEventListener("mouseenter", handleMouseEnter);
+      sidebar.removeEventListener("mouseleave", handleMouseLeave);
     };
   });
 
@@ -163,13 +141,6 @@
 
   <div class="content-wrapper">
     <div class="row">
-      <!-- <div
-        class="sidebar {isSidebarCollapsed
-          ? 'pure-u-1-24 collapsed'
-          : 'pure-u-1-8'}"
-        id="sidebar"
-      > -->
-      <!-- <div class="sidebar pure-u-1-8" id="sidebar">-->
       <div class="sidebar" id="sidebar">
         <div class="pure-menu pure-menu-vertical">
           <ul class="pure-menu-list">
@@ -193,19 +164,17 @@
                 <i class="fas fa-list"></i><span>Umístění</span>
               </a>
             </li>
-            <li class="pure-menu-item">
-              <a href="#" class="pure-menu-link">
-                <i class="fas fa-users-viewfinder"></i><span>Objekty</span>
-              </a>
-            </li>
+
             <li class="pure-menu-item">
               <a href="#" class="pure-menu-link" on:click={toggleMenu}>
                 <i class="fas fa-cogs"></i><span>Administrace</span>
+                {#if !isSidebarHidden}
                 <i
                   class="fas fa-chevron-down arrow-icon {isSubmenuOpen
                     ? 'rotated'
                     : ''}"
                 ></i>
+                {/if}
               </a>
             </li>
 
@@ -217,11 +186,16 @@
                 <a href="#" class="pure-menu-link">Test 2</a>
               </li>
             </ul>
+
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-users-viewfinder"></i><span>Objekty</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
-      <!-- <div class="main pure-u-7-8" id="main"> -->
       <div class="main" id="main">
         <div class="main-content">
           <div
@@ -435,7 +409,6 @@
         </div>
 
         <div class="pure-g">
-          <!-- <div class="footer pure-u-7-8" id="footer"> -->
           <div class="footer" id="footer">
             <div class="footer-content">Všechna práva vyhrazena.</div>
           </div>

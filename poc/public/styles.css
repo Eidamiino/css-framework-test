@@ -77,6 +77,8 @@ img {
     width: 250px;
     min-width: 250px;
     flex-shrink: 0;
+
+    transition: width 0.2s ease-in-out;
 }
 
 .main {
@@ -85,7 +87,8 @@ img {
 }
 
 .sidebar.collapsed {
-    transform: translateX(-250px);
+    width: 3.75rem;
+    min-width: 3.75rem;
 }
 
 .main.sidebar-collapsed {
@@ -488,10 +491,6 @@ table th {
     position: relative;
 }
 
-.submenu-open {
-    display: block;
-}
-
 .pure-menu-children .pure-menu-link {
     color: black;
 }
@@ -520,9 +519,8 @@ table th {
 .submenu {
     transition: max-height 0.2s ease, opacity 0.2s ease;
     padding-left: 1rem;
-    opacity: 0;
+    display: none;
 }
-
 .submenu-open {
-    opacity: 1;
+    display: block;
 }
