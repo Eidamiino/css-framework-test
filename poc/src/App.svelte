@@ -38,6 +38,7 @@
 
     const handleMouseEnter = () => {
       if (!isMobile && isSidebarCollapsed) {
+        sidebar.classList.add("hover-expanded");
         sidebar.classList.remove("collapsed");
         isSidebarHidden=false;
       }
@@ -45,6 +46,7 @@
 
     const handleMouseLeave = () => {
       if (!isMobile && isSidebarCollapsed) {
+        sidebar.classList.remove("hover-expanded");
         sidebar.classList.add("collapsed");
         isSidebarHidden=true;
       }
