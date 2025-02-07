@@ -78,7 +78,7 @@ img {
     min-width: 250px;
     flex-shrink: 0;
 
-    transition: width 0.2s ease-in-out;
+    /* transition: width 0.2s ease-in-out; */
 }
 
 .main {
@@ -111,16 +111,6 @@ img {
 .row {
     display: flex;
     flex-direction: row;
-}
-
-
-
-
-.sidebar.overlay {
-    position: fixed;
-    top: 3rem;
-    height: calc(100vh - 3rem);
-    z-index: 1000;
 }
 
 .sidebar .pure-menu {
@@ -482,6 +472,29 @@ table th {
     table td:last-child {
         border-bottom: 0;
     }
+
+    .sidebar.collapsed {
+        width: 0;
+        min-width: 0;
+    }
+
+    .sidebar.overlay {
+        position: fixed;
+        top: 3rem;
+        height: calc(100vh - 3rem);
+        z-index: 1000;
+
+        width: 90vw;
+        min-width: 90vw;
+    }
+
+    .sidebar.overlay .pure-menu-link span {
+        word-break: break-word;
+        overflow-wrap: break-word;
+        display: block;
+        max-width: 100%;
+    }
+
 }
 
 .centered-container {
@@ -534,6 +547,7 @@ table th {
     padding-left: 1rem;
     display: none;
 }
+
 .submenu-open {
     display: block;
 }

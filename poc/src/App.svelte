@@ -179,7 +179,8 @@
                 {/if}
               </a>
             </li>
-
+            
+            {#if !isSidebarHidden}
             <ul class="submenu {isSubmenuOpen ? 'submenu-open' : ''}">
               <li class="pure-menu-item">
                 <a href="#" class="pure-menu-link">Test 1</a>
@@ -188,6 +189,7 @@
                 <a href="#" class="pure-menu-link">Test 2</a>
               </li>
             </ul>
+            {/if}
 
             <li class="pure-menu-item">
               <a href="#" class="pure-menu-link">
