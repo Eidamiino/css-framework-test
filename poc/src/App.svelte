@@ -18,6 +18,7 @@
     const main = document.getElementById("main");
 
     if (isMobile) {
+      sidebar.classList.toggle("collapsed", isSidebarCollapsed);
       sidebar.classList.toggle("overlay", !isSidebarCollapsed);
     } else {
       sidebar.classList.toggle("collapsed", isSidebarCollapsed);
@@ -28,10 +29,11 @@
 
   onMount(() => {
     const sidebar = document.getElementById("sidebar");
+    updateSidebarClass();
 
     const handleResize = () => {
-      isMobile = window.innerWidth < 800;
       isSidebarCollapsed = window.innerWidth < 1400;
+      isMobile = window.innerWidth < 800;
 
       updateSidebarClass();
     };
@@ -40,7 +42,7 @@
       if (!isMobile && isSidebarCollapsed) {
         sidebar.classList.add("hover-expanded");
         sidebar.classList.remove("collapsed");
-        isSidebarHidden=false;
+        isSidebarHidden = false;
       }
     };
 
@@ -48,7 +50,7 @@
       if (!isMobile && isSidebarCollapsed) {
         sidebar.classList.remove("hover-expanded");
         sidebar.classList.add("collapsed");
-        isSidebarHidden=true;
+        isSidebarHidden = true;
       }
     };
 
@@ -57,6 +59,7 @@
     sidebar.addEventListener("mouseleave", handleMouseLeave);
 
     handleResize();
+    updateSidebarClass();
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -171,24 +174,24 @@
               <a href="#" class="pure-menu-link" on:click={toggleMenu}>
                 <i class="fas fa-cogs"></i><span>Administrace</span>
                 {#if !isSidebarHidden}
-                <i
-                  class="fas fa-chevron-down arrow-icon {isSubmenuOpen
-                    ? 'rotated'
-                    : ''}"
-                ></i>
+                  <i
+                    class="fas fa-chevron-down arrow-icon {isSubmenuOpen
+                      ? 'rotated'
+                      : ''}"
+                  ></i>
                 {/if}
               </a>
             </li>
-            
+
             {#if !isSidebarHidden}
-            <ul class="submenu {isSubmenuOpen ? 'submenu-open' : ''}">
-              <li class="pure-menu-item">
-                <a href="#" class="pure-menu-link">Test 1</a>
-              </li>
-              <li class="pure-menu-item">
-                <a href="#" class="pure-menu-link">Test 2</a>
-              </li>
-            </ul>
+              <ul class="submenu {isSubmenuOpen ? 'submenu-open' : ''}">
+                <li class="pure-menu-item">
+                  <a href="#" class="pure-menu-link">Test 1</a>
+                </li>
+                <li class="pure-menu-item">
+                  <a href="#" class="pure-menu-link">Test 2</a>
+                </li>
+              </ul>
             {/if}
 
             <li class="pure-menu-item">
