@@ -20,6 +20,7 @@
     if (isMobile) {
       sidebar.classList.toggle("collapsed", isSidebarCollapsed);
       sidebar.classList.toggle("overlay", !isSidebarCollapsed);
+      isSidebarHidden=false;
     } else {
       sidebar.classList.toggle("collapsed", isSidebarCollapsed);
       main.classList.toggle("sidebar-collapsed", isSidebarCollapsed);
