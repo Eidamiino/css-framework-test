@@ -77,8 +77,6 @@ img {
     width: 250px;
     min-width: 250px;
     flex-shrink: 0;
-
-    /* transition: width 0.2s ease-in-out; */
 }
 
 .main {
@@ -155,30 +153,15 @@ img {
     margin-top: 0.5rem;
 }
 
-/*experimented with ellipses*/
-/* .sidebar .pure-menu-link span {
-    word-break: break-word;
-    overflow-wrap: break-word;
-    min-width: 0;
-}
-
-.sidebar .pure-menu-link span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 100%;
-    display: inline-block;
-} */
-
-
 .main-content {
-    padding: 0.5rem 0.5rem 3rem 0.5rem;
+    padding: 0.5rem 0.5rem 0rem 0.5rem;
     position: relative;
 }
 
 .main-content .pure-g {
     margin-bottom: 0.5rem;
 }
+
 
 .footer {
     position: fixed;
@@ -187,6 +170,7 @@ img {
     background: white;
     border-top: 1px solid #ccc;
     margin-top: 0.5rem;
+    width: 100%;
 }
 
 .footer-content {

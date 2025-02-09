@@ -20,7 +20,7 @@
     if (isMobile) {
       sidebar.classList.toggle("collapsed", isSidebarCollapsed);
       sidebar.classList.toggle("overlay", !isSidebarCollapsed);
-      isSidebarHidden=false;
+      isSidebarHidden = false;
     } else {
       sidebar.classList.toggle("collapsed", isSidebarCollapsed);
       main.classList.toggle("sidebar-collapsed", isSidebarCollapsed);
@@ -415,12 +415,9 @@
             </div>
           </div>
         </div>
-
-        <div class="pure-g">
           <div class="footer" id="footer">
             <div class="footer-content">Všechna práva vyhrazena.</div>
           </div>
-        </div>
       </div>
     </div>
   </div>
