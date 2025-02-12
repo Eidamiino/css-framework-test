@@ -48,7 +48,6 @@ body {
 .sticky-hamburger {
     position: fixed;
     top: 50%;
-    left: 0;
     transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.9);
     border-radius: 0.25rem;
@@ -58,6 +57,13 @@ body {
     z-index: 1000;
 
     display: none;
+}
+
+.btn-left{
+    left: 0;
+}
+.btn-right {
+    right: 0;
 }
 
 .header-left {
