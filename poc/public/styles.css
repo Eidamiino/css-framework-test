@@ -41,8 +41,9 @@ body {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem;
-    margin-right: 0.5rem;
+    /* padding: 0.5rem; */
+    padding: 0 0.5rem 0 0.5rem;
+    margin-right: 0;
 }
 
 .header-left {
@@ -317,6 +318,10 @@ button {
     padding-left: 0.5rem;
 }
 
+.pure-menu-heading span{
+    font-size: 1.3em;
+}
+
 .icheck-primary input[type="checkbox"] {
     cursor: default !important;
 }
@@ -480,6 +485,10 @@ table th {
     }
 
 }
+
+/* .sidebar.collapsed .pure-menu-link {
+    display: block;
+} */
 
 .centered-container {
     display: flex;
