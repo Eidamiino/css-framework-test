@@ -201,16 +201,16 @@ img {
     margin-right: 0.5rem;
 }
 
-button {
+.ripple {
     background-position: center;
-    transition: background 0.8s;
+    transition: background 0.5s;
 }
 
-button:hover {
-    background: radial-gradient(circle, transparent 1%, rgba(0, 0, 0, 0.5) 1%) center/15000%;
+.ripple:hover {
+    background: radial-gradient(circle, transparent 1%, rgba(0, 0, 0, 0.1) 1%) center/15000%;
 }
 
-button:active {
+.ripple:active {
     background-size: 100%;
     transition: background 0s;
 }

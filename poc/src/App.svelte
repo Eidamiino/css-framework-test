@@ -172,6 +172,12 @@
             </li>
 
             <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-users-viewfinder"></i><span>Objekty</span>
+              </a>
+            </li>
+
+            <li class="pure-menu-item">
               <a href="#" class="pure-menu-link" on:click={toggleMenu}>
                 <i class="fas fa-cogs"></i><span>Administrace</span>
                 {#if !isSidebarHidden}
@@ -194,12 +200,6 @@
                 </li>
               </ul>
             {/if}
-
-            <li class="pure-menu-item">
-              <a href="#" class="pure-menu-link">
-                <i class="fas fa-users-viewfinder"></i><span>Objekty</span>
-              </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -225,35 +225,36 @@
               <input type="text" placeholder="Vyberte čas" />
             </div>
             <div class="pure-u-1-2" style="text-align: right;">
-              <button class="pure-button btn-primary">Obnovit</button>
+              <button class="pure-button btn-primary ripple">Obnovit</button>
             </div>
           </div>
 
           <div class="pure-g card">
             <div class="pure-u-1 card-header">Button colors</div>
             <div class="centered-container">
-              <button class="pure-button btn-primary">Primary</button>
+              <button class="pure-button btn-primary ripple">Primary</button>
             </div>
             <div class="centered-container">
-              <button class="pure-button btn-secondary">Secondary</button>
+              <button class="pure-button btn-secondary ripple">Secondary</button
+              >
             </div>
             <div class="centered-container">
-              <button class="pure-button btn-success">Success</button>
+              <button class="pure-button btn-success ripple">Success</button>
             </div>
             <div class="centered-container">
-              <button class="pure-button btn-danger">Danger</button>
+              <button class="pure-button btn-danger ripple">Danger</button>
             </div>
             <div class="centered-container">
-              <button class="pure-button btn-warning">Warning</button>
+              <button class="pure-button btn-warning ripple">Warning</button>
             </div>
             <div class="centered-container">
-              <button class="pure-button btn-info">Info</button>
+              <button class="pure-button btn-info ripple">Info</button>
             </div>
             <div class="centered-container">
-              <button class="pure-button btn-light">Light</button>
+              <button class="pure-button btn-light ripple">Light</button>
             </div>
             <div class="centered-container">
-              <button class="pure-button btn-dark">Dark</button>
+              <button class="pure-button btn-dark ripple">Dark</button>
             </div>
           </div>
 
@@ -402,18 +403,18 @@
               </div>
             </div>
             <div class="centered-container">
-              <button class="pure-button btn-primary">Ripple</button>
+              <button class="pure-button btn-primary ripple">Ripple</button>
             </div>
             <div class="centered-container">
               <button
-                class="pure-button loading-button btn-primary"
+                class="pure-button loading-button btn-primary ripple"
                 id="loadingButton"
                 on:click={toggleLoading}>Loading</button
               >
             </div>
             <div class="centered-container">
               <button
-                class="pure-button btn-primary"
+                class="pure-button btn-primary ripple"
                 id="show-toast"
                 on:click={showToast}>Toastr</button
               >
@@ -435,7 +436,7 @@
 
             <div class="centered-container">
               <button
-                class="pure-button btn-primary"
+                class="pure-button btn-primary ripple"
                 on:click={openModal}>Modal</button
               >
             </div>
