@@ -41,9 +41,23 @@ body {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    /* padding: 0.5rem; */
     padding: 0 0.5rem 0 0.5rem;
     margin-right: 0;
+}
+
+.sticky-hamburger {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0.25rem;
+    padding: 0.8rem;
+    margin: 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+
+    display: none;
 }
 
 .header-left {
@@ -486,6 +500,9 @@ table th {
         max-width: 100%;
     }
 
+    .sticky-hamburger{
+        display: block;
+    }
 }
 
 /* .sidebar.collapsed .pure-menu-link {

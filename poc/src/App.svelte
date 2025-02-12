@@ -128,18 +128,18 @@
     <div class="pure-g">
       <div class="pure-u-1-2 header-left">
         <!-- <div class="header-left"> -->
-          <button class="hamburger-btn" on:click={toggleSidebar}>
-            <i class="fas fa-bars"></i>
-          </button>
-          <a href="#" class="pure-menu-heading">
-            <!-- <img class="pure-image" src="" alt="" /> -->
-            <span>Dokumenty</span>
-          </a>
+        <button class="hamburger-btn" on:click={toggleSidebar}>
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="#" class="pure-menu-heading">
+          <!-- <img class="pure-image" src="" alt="" /> -->
+          <span>Dokumenty</span>
+        </a>
         <!-- </div> -->
       </div>
       <div class="pure-u-1-2 header-right">
         <!-- <div class="header-right"> -->
-          <a href="#" class="pure-menu-link">email@email.com</a>
+        <a href="#" class="pure-menu-link">email@email.com</a>
         <!-- </div> -->
       </div>
     </div>
@@ -209,6 +209,10 @@
           </ul>
         </div>
       </div>
+
+      <button class="hamburger-btn sticky-hamburger" on:click={toggleSidebar}>
+        <i class="fas fa-bars"></i>
+      </button>
 
       <div class="main" id="main">
         <div class="main-content">
