@@ -132,7 +132,7 @@
             <i class="fas fa-bars"></i>
           </button>
           <a href="#" class="pure-menu-heading">
-            <img class="pure-image" src="" alt="" />
+            <!-- <img class="pure-image" src="" alt="" /> -->
             <span>Dokumenty</span>
           </a>
         </div>
@@ -225,7 +225,35 @@
               <input type="text" placeholder="Vyberte čas" />
             </div>
             <div class="pure-u-1-2" style="text-align: right;">
-              <button class="pure-button pure-button-primary">Obnovit</button>
+              <button class="pure-button btn-primary">Obnovit</button>
+            </div>
+          </div>
+
+          <div class="pure-g card">
+            <div class="pure-u-1 card-header">Button colors</div>
+            <div class="centered-container">
+              <button class="pure-button btn-primary">Primary</button>
+            </div>
+            <div class="centered-container">
+              <button class="pure-button btn-secondary">Secondary</button>
+            </div>
+            <div class="centered-container">
+              <button class="pure-button btn-success">Success</button>
+            </div>
+            <div class="centered-container">
+              <button class="pure-button btn-danger">Danger</button>
+            </div>
+            <div class="centered-container">
+              <button class="pure-button btn-warning">Warning</button>
+            </div>
+            <div class="centered-container">
+              <button class="pure-button btn-info">Info</button>
+            </div>
+            <div class="centered-container">
+              <button class="pure-button btn-light">Light</button>
+            </div>
+            <div class="centered-container">
+              <button class="pure-button btn-dark">Dark</button>
             </div>
           </div>
 
@@ -374,20 +402,18 @@
               </div>
             </div>
             <div class="centered-container">
-              <button class="pure-button pure-button-primary ripple"
-                >Ripple</button
-              >
+              <button class="pure-button btn-primary">Ripple</button>
             </div>
             <div class="centered-container">
               <button
-                class="pure-button pure-button-primary loading-button"
+                class="pure-button loading-button btn-primary"
                 id="loadingButton"
                 on:click={toggleLoading}>Loading</button
               >
             </div>
             <div class="centered-container">
               <button
-                class="pure-button pure-button-primary"
+                class="pure-button btn-primary"
                 id="show-toast"
                 on:click={showToast}>Toastr</button
               >
@@ -409,15 +435,15 @@
 
             <div class="centered-container">
               <button
-                class="pure-button pure-button-primary"
+                class="pure-button btn-primary"
                 on:click={openModal}>Modal</button
               >
             </div>
           </div>
         </div>
-          <div class="footer" id="footer">
-            <div class="footer-content">Všechna práva vyhrazena.</div>
-          </div>
+        <div class="footer" id="footer">
+          <div class="footer-content">Všechna práva vyhrazena.</div>
+        </div>
       </div>
     </div>
   </div>

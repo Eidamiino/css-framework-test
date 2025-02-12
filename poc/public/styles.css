@@ -201,17 +201,16 @@ img {
     margin-right: 0.5rem;
 }
 
-.ripple {
+button {
     background-position: center;
     transition: background 0.8s;
 }
 
-.ripple:hover {
-    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+button:hover {
+    background: radial-gradient(circle, transparent 1%, rgba(0, 0, 0, 0.5) 1%) center/15000%;
 }
 
-.ripple:active {
-    background-color: #6eb9f7;
+button:active {
     background-size: 100%;
     transition: background 0s;
 }
@@ -315,6 +314,7 @@ button {
 .pure-menu-heading {
     display: flex;
     align-items: center;
+    padding-left: 0.5rem;
 }
 
 .icheck-primary input[type="checkbox"] {
@@ -534,4 +534,118 @@ table th {
 
 .submenu-open {
     display: block;
+}
+
+
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0d6efd;
+}
+
+.btn-primary:active {
+    background-color: #0b5ed7;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #6c757d;
+}
+
+.btn-secondary:active {
+    background-color: #5c636a;
+}
+
+.btn-success {
+    background-color: #198754;
+    border-color: #198754;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #198754;
+}
+
+.btn-success:active {
+    background-color: #157347;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #dc3545;
+}
+
+.btn-danger:active {
+    background-color: #bb2d3b;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: black;
+}
+
+.btn-warning:hover {
+    background-color: #ffc107;
+}
+
+.btn-warning:active {
+    background-color: #ffca2c;
+}
+
+.btn-info {
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+    color: black;
+}
+
+.btn-info:hover {
+    background-color: #0dcaf0;
+}
+
+.btn-info:active {
+    background-color: #31d2f2;
+}
+
+.btn-light {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    color: black;
+}
+
+.btn-light:hover {
+    background-color: #f8f9fa;
+}
+
+.btn-light:active {
+    background-color: #e2e6ea;
+}
+
+.btn-dark {
+    background-color: #212529;
+    border-color: #212529;
+    color: white;
+}
+
+.btn-dark:hover {
+    background-color: #212529;
+}
+
+.btn-dark:active {
+    background-color: #1c1f23;
 }
