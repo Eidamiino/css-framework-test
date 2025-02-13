@@ -207,6 +207,141 @@
                 <span>Objekty</span>
               </a>
             </li>
+
+
+
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-file"></i>
+                <span>Dokumenty</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-layer-group"></i>
+                <span>Zařazení</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-list"></i>
+                <span>Umístění</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-file"></i>
+                <span>Dokumenty</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-layer-group"></i>
+                <span>Zařazení</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-list"></i>
+                <span>Umístění</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-file"></i>
+                <span>Dokumenty</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-layer-group"></i>
+                <span>Zařazení</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-list"></i>
+                <span>Umístění</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-file"></i>
+                <span>Dokumenty</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-layer-group"></i>
+                <span>Zařazení</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-list"></i>
+                <span>Umístění</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-file"></i>
+                <span>Dokumenty</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-layer-group"></i>
+                <span>Zařazení</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-list"></i>
+                <span>Umístění</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-file"></i>
+                <span>Dokumenty</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-layer-group"></i>
+                <span>Zařazení</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-list"></i>
+                <span>Umístění</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-file"></i>
+                <span>Dokumenty</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-layer-group"></i>
+                <span>Zařazení</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-list"></i>
+                <span>Umístění</span>
+              </a>
+            </li>
+
+
+
+
+
+
           </ul>
         </div>
       </div>

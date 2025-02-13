@@ -505,6 +505,9 @@ table th {
 
         width: 90vw;
         min-width: 90vw;
+
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .sidebar.overlay .pure-menu-link span {
