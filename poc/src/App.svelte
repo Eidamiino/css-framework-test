@@ -121,13 +121,17 @@
     event.preventDefault();
     isSubmenuOpen = !isSubmenuOpen;
   }
+
+
+  function increaseFontSize(size){
+    document.documentElement.style.fontSize = size+"px";
+  }
 </script>
 
 <div class="layout-wrapper">
   <div class="header">
     <div class="pure-g">
       <div class="pure-u-1-2 header-left">
-        <!-- <div class="header-left"> -->
         <button class="hamburger-btn" on:click={toggleSidebar}>
           <i class="fas fa-bars"></i>
         </button>
@@ -135,12 +139,9 @@
           <!-- <img class="pure-image" src="" alt="" /> -->
           <span>Dokumenty</span>
         </a>
-        <!-- </div> -->
       </div>
       <div class="pure-u-1-2 header-right">
-        <!-- <div class="header-right"> -->
         <a href="#" class="pure-menu-link">email@email.com</a>
-        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -210,11 +211,17 @@
         </div>
       </div>
 
-      <button class="hamburger-btn sticky-hamburger btn-left" on:click={toggleSidebar}>
+      <button
+        class="hamburger-btn sticky-hamburger btn-left"
+        on:click={toggleSidebar}
+      >
         <i class="fas fa-bars"></i>
       </button>
 
-      <button class="hamburger-btn sticky-hamburger btn-right" on:click={toggleSidebar}>
+      <button
+        class="hamburger-btn sticky-hamburger btn-right"
+        on:click={toggleSidebar}
+      >
         <i class="fas fa-bars"></i>
       </button>
 
@@ -245,30 +252,26 @@
 
           <div class="pure-g card">
             <div class="pure-u-1 card-header">Button colors</div>
-            <div class="centered-container">
+            <div class="button-container centered-container">
               <button class="pure-button btn-primary ripple">Primary</button>
-            </div>
-            <div class="centered-container">
               <button class="pure-button btn-secondary ripple">Secondary</button
               >
-            </div>
-            <div class="centered-container">
               <button class="pure-button btn-success ripple">Success</button>
-            </div>
-            <div class="centered-container">
               <button class="pure-button btn-danger ripple">Danger</button>
-            </div>
-            <div class="centered-container">
               <button class="pure-button btn-warning ripple">Warning</button>
-            </div>
-            <div class="centered-container">
               <button class="pure-button btn-info ripple">Info</button>
-            </div>
-            <div class="centered-container">
               <button class="pure-button btn-light ripple">Light</button>
-            </div>
-            <div class="centered-container">
               <button class="pure-button btn-dark ripple">Dark</button>
+            </div>
+          </div>
+
+          <div class="pure-g card">
+            <div class="pure-u-1 card-header">Change font size</div>
+            <div class="button-container centered-container">
+              <button class="pure-button btn-primary ripple" on:click={()=>increaseFontSize(14)}>14px</button>
+              <button class="pure-button btn-primary ripple" on:click={()=>increaseFontSize(16)}>16px</button>
+              <button class="pure-button btn-primary ripple" on:click={()=>increaseFontSize(18)}>18px</button>
+              <button class="pure-button btn-primary ripple" on:click={()=>increaseFontSize(25)}>25px</button>
             </div>
           </div>
 
@@ -404,6 +407,7 @@
           </div>
           <div class="pure-g card">
             <div class="pure-u-1 card-header">Button experiments</div>
+
             <div class="pure-form centered-container">
               <div class="input-icon-wrapper">
                 <div class="input-icon-container">
@@ -416,39 +420,31 @@
                 />
               </div>
             </div>
-            <div class="centered-container">
+            <div class="centered-container button-container">
               <button class="pure-button btn-primary ripple">Ripple</button>
-            </div>
-            <div class="centered-container">
               <button
                 class="pure-button loading-button btn-primary ripple"
                 id="loadingButton"
                 on:click={toggleLoading}>Loading</button
               >
-            </div>
-            <div class="centered-container">
               <button
                 class="pure-button btn-primary ripple"
                 id="show-toast"
                 on:click={showToast}>Toastr</button
               >
-            </div>
 
-            <div class="icheck-primary centered-container">
-              <input type="checkbox" id="someCheckboxId" />
-              <label for="someCheckboxId">i-check</label>
-            </div>
+              <div class="icheck-primary centered-container">
+                <input type="checkbox" id="someCheckboxId" />
+                <label for="someCheckboxId">i-check</label>
+              </div>
 
-            <div class="centered-container">
               <Select
                 bind:value={selectedOption}
                 items={options}
                 placeholder="Select"
                 class="svelte-select"
               ></Select>
-            </div>
 
-            <div class="centered-container">
               <button
                 class="pure-button btn-primary ripple"
                 on:click={openModal}>Modal</button
