@@ -10,11 +10,6 @@ body {
     padding: 0;
     min-height: 100vh;
     font-size: 1rem;
-
-    /*smazat*/
-    /* overflow-x: hidden;
-    word-wrap: break-word;
-    word-break: break-all; */
 }
 
 .layout-wrapper {
@@ -191,26 +186,9 @@ img {
 .main-content {
     padding: 0.5rem 0.5rem 3rem 0.5rem;
     position: relative;
-
-    /* smazat */
     max-width: 100%;
     box-sizing: border-box;
 }
-
-.main-content table {
-    /* smazat */
-    /* max-width: 100%;
-    display: block;
-    overflow-x: auto; */
-}
-
-* {
-    /* smazat */
-    /* max-width: 100%;
-    box-sizing: border-box; */
-}
-
-
 
 .main-content .pure-g {
     margin-bottom: 0.5rem;
@@ -253,6 +231,10 @@ img {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     margin-right: min(0.5rem, 2vw);
+
+    max-width: 100%;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .ripple {
@@ -337,7 +319,6 @@ button {
     display: flex;
     gap: 0.5rem;
 
-    /* smazat2 */
     flex-wrap: wrap;
     width: 100%;
     box-sizing: border-box;
