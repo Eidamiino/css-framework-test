@@ -122,9 +122,8 @@
     isSubmenuOpen = !isSubmenuOpen;
   }
 
-
-  function increaseFontSize(size){
-    document.documentElement.style.fontSize = size+"px";
+  function increaseFontSize(size) {
+    document.documentElement.style.fontSize = size + "px";
   }
 </script>
 
@@ -208,8 +207,6 @@
               </a>
             </li>
 
-
-
             <li class="pure-menu-item">
               <a href="#" class="pure-menu-link">
                 <i class="fas fa-file"></i>
@@ -336,12 +333,6 @@
                 <span>Umístění</span>
               </a>
             </li>
-
-
-
-
-
-
           </ul>
         </div>
       </div>
@@ -403,10 +394,22 @@
           <div class="pure-g card">
             <div class="pure-u-1 card-header">Change font size</div>
             <div class="button-container centered-container">
-              <button class="pure-button btn-primary ripple" on:click={()=>increaseFontSize(14)}>14px</button>
-              <button class="pure-button btn-primary ripple" on:click={()=>increaseFontSize(16)}>16px</button>
-              <button class="pure-button btn-primary ripple" on:click={()=>increaseFontSize(18)}>18px</button>
-              <button class="pure-button btn-primary ripple" on:click={()=>increaseFontSize(25)}>25px</button>
+              <button
+                class="pure-button btn-primary ripple"
+                on:click={() => increaseFontSize(14)}>14px</button
+              >
+              <button
+                class="pure-button btn-primary ripple"
+                on:click={() => increaseFontSize(16)}>16px</button
+              >
+              <button
+                class="pure-button btn-primary ripple"
+                on:click={() => increaseFontSize(18)}>18px</button
+              >
+              <button
+                class="pure-button btn-primary ripple"
+                on:click={() => increaseFontSize(25)}>25px</button
+              >
             </div>
           </div>
 
@@ -542,48 +545,47 @@
           </div>
           <div class="pure-g card">
             <div class="pure-u-1 card-header">Button experiments</div>
-
-            <div class="pure-form centered-container">
-              <div class="input-icon-wrapper">
-                <div class="input-icon-container">
-                  <i class="input-icon fas fa-envelope"></i>
+              <div class="pure-form centered-container">
+                <div class="input-icon-wrapper">
+                  <div class="input-icon-container">
+                    <i class="input-icon fas fa-envelope"></i>
+                  </div>
+                  <input
+                    type="email"
+                    class="pure-input input-with-icon"
+                    placeholder="Email"
+                  />
                 </div>
-                <input
-                  type="email"
-                  class="pure-input input-with-icon"
-                  placeholder="Email"
-                />
               </div>
-            </div>
-            <div class="centered-container button-container">
-              <button class="pure-button btn-primary ripple">Ripple</button>
-              <button
-                class="pure-button loading-button btn-primary ripple"
-                id="loadingButton"
-                on:click={toggleLoading}>Loading</button
-              >
-              <button
-                class="pure-button btn-primary ripple"
-                id="show-toast"
-                on:click={showToast}>Toastr</button
-              >
+              <div class="centered-container mixed-container">
+                <button class="pure-button btn-primary ripple">Ripple</button>
+                <button
+                  class="pure-button loading-button btn-primary ripple"
+                  id="loadingButton"
+                  on:click={toggleLoading}>Loading</button
+                >
+                <button
+                  class="pure-button btn-primary ripple"
+                  id="show-toast"
+                  on:click={showToast}>Toastr</button
+                >
 
-              <div class="icheck-primary centered-container">
-                <input type="checkbox" id="someCheckboxId" />
-                <label for="someCheckboxId">i-check</label>
-              </div>
+                <div class="icheck-primary centered-container">
+                  <input type="checkbox" id="someCheckboxId" />
+                  <label for="someCheckboxId">i-check</label>
+                </div>
 
-              <Select
-                bind:value={selectedOption}
-                items={options}
-                placeholder="Select"
-                class="svelte-select"
-              ></Select>
+                <Select
+                  bind:value={selectedOption}
+                  items={options}
+                  placeholder="Select"
+                  class="svelte-select"
+                ></Select>
 
-              <button
-                class="pure-button btn-primary ripple"
-                on:click={openModal}>Modal</button
-              >
+                <button
+                  class="pure-button btn-primary ripple"
+                  on:click={openModal}>Modal</button
+                >
             </div>
           </div>
         </div>
