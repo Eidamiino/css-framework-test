@@ -7,7 +7,6 @@
   let isSidebarCollapsed = window.innerWidth < 1400;
   let isMobile = window.innerWidth < 800;
   let isSidebarHidden = isSidebarCollapsed;
-  let hideEmail = window.innerWidth < 500;
 
   function toggleSidebar() {
     isSidebarCollapsed = !isSidebarCollapsed;
@@ -36,7 +35,6 @@
     const handleResize = () => {
       isSidebarCollapsed = window.innerWidth < 1400;
       isMobile = window.innerWidth < 800;
-      hideEmail = window.innerWidth < 500;
 
       updateSidebarClass();
     };
@@ -155,7 +153,7 @@
       </div>
       <div class="pure-u-1-2">
         <div class="header-right">
-          {#if hideEmail}
+          {#if isMobile}
             <button class="icon-btn" on:click={openUserModal}>
               <i class="fas fa-user"></i>
             </button>
