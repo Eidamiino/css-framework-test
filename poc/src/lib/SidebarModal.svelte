@@ -13,7 +13,8 @@
 	let expandedOrientation;
 	let contentDimensions;
 
-	$: expandedOrientation = orientation || (document.dir === "rtl" ? "left" : "right");
+	$: expandedOrientation =
+		orientation || (document.dir === "rtl" ? "left" : "right");
 	$: contentDimensions = getContentDimensions(expandedOrientation);
 
 	onDestroy(() => {
@@ -56,8 +57,15 @@
 </script>
 
 {#if alwaysVisible || shown}
-	<div class="sidebar-modal {shown ? 'show' : ''}" on:click|capture={onRootElementClick}>
-		<main bind:this={mainContentElement} class={expandedOrientation} style="width: {contentDimensions.w}; height: {contentDimensions.h};">
+	<div
+		class="sidebar-modal {shown ? 'show' : ''}"
+		on:click|capture={onRootElementClick}
+	>
+		<main
+			bind:this={mainContentElement}
+			class={expandedOrientation}
+			style="width: {contentDimensions.w}; height: {contentDimensions.h};"
+		>
 			<slot {data} {hideModal} />
 		</main>
 	</div>

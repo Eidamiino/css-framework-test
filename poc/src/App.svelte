@@ -7,6 +7,7 @@
   let isSidebarCollapsed = window.innerWidth < 1400;
   let isMobile = window.innerWidth < 800;
   let isSidebarHidden = isSidebarCollapsed;
+  let hideEmail = window.innerWidth < 500;
 
   function toggleSidebar() {
     isSidebarCollapsed = !isSidebarCollapsed;
@@ -35,6 +36,7 @@
     const handleResize = () => {
       isSidebarCollapsed = window.innerWidth < 1400;
       isMobile = window.innerWidth < 800;
+      hideEmail = window.innerWidth < 500;
 
       updateSidebarClass();
     };
@@ -115,6 +117,16 @@
     modalOpen = false;
   }
 
+  let userModalOpen = false;
+
+  function openUserModal() {
+    userModalOpen = true;
+  }
+
+  function closeUserModal() {
+    userModalOpen = false;
+  }
+
   let isSubmenuOpen = false;
 
   function toggleMenu(event) {
@@ -130,20 +142,43 @@
 <div class="layout-wrapper">
   <div class="header">
     <div class="pure-g">
-      <div class="pure-u-1-2 header-left">
-        <button class="hamburger-btn" on:click={toggleSidebar}>
-          <i class="fas fa-bars"></i>
-        </button>
-        <a href="#" class="pure-menu-heading">
-          <!-- <img class="pure-image" src="" alt="" /> -->
-          <span>Dokumenty</span>
-        </a>
+      <div class="pure-u-1-2">
+        <div class="header-left">
+          <button class="hamburger-btn" on:click={toggleSidebar}>
+            <i class="fas fa-bars"></i>
+          </button>
+          <a href="#" class="pure-menu-heading">
+            <img class="pure-image" src="" alt="" />
+            <span>Dokumenty</span>
+          </a>
+        </div>
       </div>
-      <div class="pure-u-1-2 header-right">
-        <a href="#" class="pure-menu-link">email@email.com</a>
+      <div class="pure-u-1-2">
+        <div class="header-right">
+          {#if hideEmail}
+            <button class="icon-btn" on:click={openUserModal}>
+              <i class="fas fa-user"></i>
+            </button>
+          {:else}
+            <a href="#" class="pure-menu-link">email@email.com</a>
+          {/if}
+        </div>
       </div>
     </div>
   </div>
+
+  <SidebarModal
+    bind:shown={userModalOpen}
+    orientation="right"
+    on:close={closeUserModal}
+  >
+    <a href="#" class="pure-menu-heading">
+      <span>Petr Novák</span>
+    </a>
+    <a href="#" class="pure-menu-link" style="padding-left: 5px;"
+      >email@email.com</a
+    >
+  </SidebarModal>
 
   <div class="content-wrapper">
     <div class="row">
@@ -545,47 +580,47 @@
           </div>
           <div class="pure-g card">
             <div class="pure-u-1 card-header">Button experiments</div>
-              <div class="pure-form centered-container">
-                <div class="input-icon-wrapper">
-                  <div class="input-icon-container">
-                    <i class="input-icon fas fa-envelope"></i>
-                  </div>
-                  <input
-                    type="email"
-                    class="pure-input input-with-icon"
-                    placeholder="Email"
-                  />
+            <div class="pure-form centered-container">
+              <div class="input-icon-wrapper">
+                <div class="input-icon-container">
+                  <i class="input-icon fas fa-envelope"></i>
                 </div>
+                <input
+                  type="email"
+                  class="pure-input input-with-icon"
+                  placeholder="Email"
+                />
               </div>
-              <div class="centered-container mixed-container">
-                <button class="pure-button btn-primary ripple">Ripple</button>
-                <button
-                  class="pure-button loading-button btn-primary ripple"
-                  id="loadingButton"
-                  on:click={toggleLoading}>Loading</button
-                >
-                <button
-                  class="pure-button btn-primary ripple"
-                  id="show-toast"
-                  on:click={showToast}>Toastr</button
-                >
+            </div>
+            <div class="centered-container mixed-container">
+              <button class="pure-button btn-primary ripple">Ripple</button>
+              <button
+                class="pure-button loading-button btn-primary ripple"
+                id="loadingButton"
+                on:click={toggleLoading}>Loading</button
+              >
+              <button
+                class="pure-button btn-primary ripple"
+                id="show-toast"
+                on:click={showToast}>Toastr</button
+              >
 
-                <div class="icheck-primary centered-container">
-                  <input type="checkbox" id="someCheckboxId" />
-                  <label for="someCheckboxId">i-check</label>
-                </div>
+              <div class="icheck-primary centered-container">
+                <input type="checkbox" id="someCheckboxId" />
+                <label for="someCheckboxId">i-check</label>
+              </div>
 
-                <Select
-                  bind:value={selectedOption}
-                  items={options}
-                  placeholder="Select"
-                  class="svelte-select"
-                ></Select>
+              <Select
+                bind:value={selectedOption}
+                items={options}
+                placeholder="Select"
+                class="svelte-select"
+              ></Select>
 
-                <button
-                  class="pure-button btn-primary ripple"
-                  on:click={openModal}>Modal</button
-                >
+              <button
+                class="pure-button btn-primary ripple"
+                on:click={openModal}>Modal</button
+              >
             </div>
           </div>
         </div>
