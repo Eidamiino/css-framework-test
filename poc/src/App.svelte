@@ -169,6 +169,7 @@
     bind:shown={userModalOpen}
     orientation="right"
     on:close={closeUserModal}
+    targetSize="45vw"
   >
     <a href="#" class="pure-menu-heading">
       <span>Petr Novák</span>
