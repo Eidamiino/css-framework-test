@@ -143,6 +143,14 @@
     appliedFontSize = selectedFontSize;
     document.documentElement.style.fontSize = `${appliedFontSize}px`;
   }
+
+  let dateInput;
+
+  function openDatePicker() {
+    if (dateInput) {
+      dateInput.showPicker();
+    }
+  }
 </script>
 
 <div class="layout-wrapper">
@@ -468,6 +476,22 @@
               >
                 Apply
               </button>
+            </div>
+          </div>
+
+          <div class="pure-g card">
+            <div class="pure-u-1 card-header">Date picker</div>
+            <div class="pure-form centered-container">
+              <div class="input-icon-wrapper">
+                <div class="input-icon-container" on:click={openDatePicker}>
+                  <i class="input-icon fas fa-calendar-alt"></i>
+                </div>
+                <input
+                  type="date"
+                  bind:this={dateInput}
+                  class="pure-input input-with-icon"
+                />
+              </div>
             </div>
           </div>
 

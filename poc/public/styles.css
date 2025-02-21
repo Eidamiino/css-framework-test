@@ -51,7 +51,7 @@ body {
     cursor: pointer;
     padding: 0 1.25em 0 0.5em;
     font-size: 1.45em;
-  }
+}
 
 .sticky-hamburger {
     position: fixed;
@@ -748,11 +748,17 @@ table th {
     padding: 0.5em 0.5em;
 }
 
- .font-size-display{
+.font-size-display {
     width: 2.5em;
- }
+}
 
- input[type="range"]{
+input[type="range"] {
     width: 100%;
     max-width: 15em;
- }
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
