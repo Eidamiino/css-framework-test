@@ -135,6 +135,14 @@
   function increaseFontSize(size) {
     document.documentElement.style.fontSize = size + "px";
   }
+
+  let selectedFontSize = 16;
+  let appliedFontSize = 16;
+
+  function applyFontSize() {
+    appliedFontSize = selectedFontSize;
+    document.documentElement.style.fontSize = `${appliedFontSize}px`;
+  }
 </script>
 
 <div class="layout-wrapper">
@@ -427,7 +435,7 @@
 
           <div class="pure-g card">
             <div class="pure-u-1 card-header">Change font size</div>
-            <div class="button-container centered-container">
+            <!-- <div class="button-container centered-container">
               <button
                 class="pure-button btn-primary ripple"
                 on:click={() => increaseFontSize(14)}>14px</button
@@ -444,6 +452,22 @@
                 class="pure-button btn-primary ripple"
                 on:click={() => increaseFontSize(25)}>25px</button
               >
+            </div> -->
+            <div class="mixed-container">
+              <input
+                type="range"
+                min="10"
+                max="30"
+                step="1"
+                bind:value={selectedFontSize}
+              />
+              <span class="font-size-display">{selectedFontSize}px</span>
+              <button
+                class="pure-button btn-primary ripple"
+                on:click={applyFontSize}
+              >
+                Apply
+              </button>
             </div>
           </div>
 

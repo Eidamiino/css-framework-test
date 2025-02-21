@@ -747,3 +747,12 @@ table th {
 .pure-button {
     padding: 0.5em 0.5em;
 }
+
+ .font-size-display{
+    width: 2.5em;
+ }
+
+ input[type="range"]{
+    width: 100%;
+    max-width: 15em;
+ }
