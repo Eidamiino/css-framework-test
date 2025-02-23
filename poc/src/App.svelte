@@ -9,6 +9,7 @@
   let isSidebarHidden = isSidebarCollapsed;
 
   let sidebar;
+  let startY;
 
   function toggleSidebar() {
     isSidebarCollapsed = !isSidebarCollapsed;
@@ -67,12 +68,20 @@
       }
     };
 
+    const handleTouchStart = (event) => {
+      startY = event.touches[0].clientY;
+    };
+
     const handleTouchMove = (event) => {
+      const currentY = event.touches[0].clientY;
+      const isScrollingDown = currentY < startY;
+      const isScrollingUp = currentY > startY;
+
       const atTop = sidebar.scrollTop === 0;
       const atBottom =
         sidebar.scrollTop + sidebar.clientHeight >= sidebar.scrollHeight;
 
-      if (atTop || atBottom) {
+      if ((atTop && isScrollingUp) || (atBottom && isScrollingDown)) {
         event.preventDefault();
       }
     };
@@ -82,10 +91,12 @@
     sidebar.addEventListener("mouseleave", handleMouseLeave);
 
     sidebar.addEventListener("wheel", handleWheel, { passive: false });
+    sidebar.addEventListener("touchstart", handleTouchStart, { passive: true });
     sidebar.addEventListener("touchmove", handleTouchMove, { passive: false });
 
     onDestroy(() => {
       sidebar.removeEventListener("wheel", handleWheel);
+      sidebar.removeEventListener("touchstart", handleTouchStart);
       sidebar.removeEventListener("touchmove", handleTouchMove);
     });
 
