@@ -1,12 +1,14 @@
 <script>
   import toastr from "toastr";
   import Select from "svelte-select";
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import SidebarModal from "./lib/SidebarModal.svelte";
 
   let isSidebarCollapsed = window.innerWidth < 1400;
   let isMobile = window.innerWidth < 800;
   let isSidebarHidden = isSidebarCollapsed;
+
+  let sidebar;
 
   function toggleSidebar() {
     isSidebarCollapsed = !isSidebarCollapsed;
@@ -55,9 +57,37 @@
       }
     };
 
+    const handleWheel = (event) => {
+      const atTop = sidebar.scrollTop === 0;
+      const atBottom =
+        sidebar.scrollTop + sidebar.clientHeight >= sidebar.scrollHeight;
+
+      if ((atTop && event.deltaY < 0) || (atBottom && event.deltaY > 0)) {
+        event.preventDefault();
+      }
+    };
+
+    const handleTouchMove = (event) => {
+      const atTop = sidebar.scrollTop === 0;
+      const atBottom =
+        sidebar.scrollTop + sidebar.clientHeight >= sidebar.scrollHeight;
+
+      if (atTop || atBottom) {
+        event.preventDefault();
+      }
+    };
+
     window.addEventListener("resize", handleResize);
     sidebar.addEventListener("mouseenter", handleMouseEnter);
     sidebar.addEventListener("mouseleave", handleMouseLeave);
+
+    sidebar.addEventListener("wheel", handleWheel, { passive: false });
+    sidebar.addEventListener("touchmove", handleTouchMove, { passive: false });
+
+    onDestroy(() => {
+      sidebar.removeEventListener("wheel", handleWheel);
+      sidebar.removeEventListener("touchmove", handleTouchMove);
+    });
 
     handleResize();
     updateSidebarClass();
@@ -197,7 +227,7 @@
 
   <div class="content-wrapper">
     <div class="row">
-      <div class="sidebar" id="sidebar">
+      <div class="sidebar" id="sidebar" bind:this={sidebar}>
         <div class="pure-menu pure-menu-vertical">
           <ul class="pure-menu-list">
             <li class="pure-menu-item first-item">
