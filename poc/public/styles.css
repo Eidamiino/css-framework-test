@@ -116,6 +116,13 @@ img {
     overflow-y: auto;
     overflow-x: hidden;
     height: 100vh;
+
+    position: sticky;
+    top: 0;
+}
+
+.pure-menu-list{
+    margin-bottom: 3.5em !important;
 }
 
 .main {
