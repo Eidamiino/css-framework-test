@@ -107,13 +107,15 @@ img {
     min-height: 100vh;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
 
-    /* width: 250px;
-    min-width: 250px; */
     width: 100%;
     min-width: auto;
     max-width: 250px;
 
     flex-shrink: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
 }
 
 .main {
@@ -125,6 +127,8 @@ img {
 .sidebar.collapsed {
     width: 3.75em;
     min-width: 3.75em;
+
+    overflow: hidden;
 }
 
 .main.sidebar-collapsed {
@@ -550,8 +554,7 @@ table th {
         width: 90vw;
         min-width: 90vw;
 
-        overflow-y: auto;
-        overflow-x: hidden;
+        
     }
 
     .sidebar.overlay .pure-menu-link span {
