@@ -438,6 +438,7 @@
         </div>
       </div>
 
+      {#if isMobile} 
       <div class="right-sidebar" id="right-sidebar">
         <div class="pure-menu pure-menu-vertical">
           <ul class="pure-menu-list">
@@ -468,6 +469,7 @@
           </ul>
         </div>
       </div>
+      {/if}
 
       <button
         class="hamburger-btn sticky-hamburger btn-left"
