@@ -173,10 +173,6 @@
     isSubmenuOpen = !isSubmenuOpen;
   }
 
-  function increaseFontSize(size) {
-    document.documentElement.style.fontSize = size + "px";
-  }
-
   let selectedFontSize = 16;
   let appliedFontSize = 16;
 
