@@ -11,9 +11,23 @@
   let sidebar;
   let startY;
 
+  let isRightSidebarOpen = false;
+
   function toggleSidebar() {
     isSidebarCollapsed = !isSidebarCollapsed;
     updateSidebarClass();
+  }
+
+  function toggleRightSidebar() {
+    isRightSidebarOpen = !isRightSidebarOpen;
+    updateRightSidebarClass();
+  }
+
+  function updateRightSidebarClass() {
+    const rightSidebar = document.getElementById("right-sidebar");
+    if (rightSidebar) {
+      rightSidebar.classList.toggle("overlay", isRightSidebarOpen);
+    }
   }
 
   function updateSidebarClass() {
@@ -424,6 +438,37 @@
         </div>
       </div>
 
+      <div class="right-sidebar" id="right-sidebar">
+        <div class="pure-menu pure-menu-vertical">
+          <ul class="pure-menu-list">
+            <li class="pure-menu-item first-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-dashboard"></i>
+                <span>Nástěnka</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-file"></i>
+                <span>Dokumenty</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-layer-group"></i>
+                <span>Zařazení</span>
+              </a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">
+                <i class="fas fa-list"></i>
+                <span>Umístění</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <button
         class="hamburger-btn sticky-hamburger btn-left"
         on:click={toggleSidebar}
@@ -433,7 +478,7 @@
 
       <button
         class="hamburger-btn sticky-hamburger btn-right"
-        on:click={toggleSidebar}
+        on:click={toggleRightSidebar}
       >
         <i class="fas fa-bars"></i>
       </button>
