@@ -499,6 +499,10 @@ table th {
     text-transform: uppercase;
 }
 
+.sidebar.hover-expanded ~ .main {
+    margin-left: 3.75em;
+}
+
 @media screen and (max-width: 800px) {
     :root {
         font-size: 18px;
@@ -563,6 +567,8 @@ table th {
 
         
     }
+
+   
 
     .sidebar.overlay .pure-menu-link span {
         word-break: break-word;
