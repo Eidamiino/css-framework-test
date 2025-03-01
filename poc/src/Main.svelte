@@ -219,7 +219,7 @@
               <i class="fas fa-user"></i>
             </button>
           {:else}
-            <a href="#" class="pure-menu-link">email@email.com</a>
+            <a href="#" class="pure-menu-link" on:click={openUserModal}>email@email.com</a>
           {/if}
         </div>
       </div>
