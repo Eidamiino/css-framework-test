@@ -424,20 +424,6 @@
         </div>
       </div>
 
-      <button
-        class="hamburger-btn sticky-hamburger btn-left"
-        on:click={toggleSidebar}
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <button
-        class="hamburger-btn sticky-hamburger btn-right"
-        on:click={toggleSidebar}
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-
       <div class="main" id="main">
         <div class="main-content">
           <div
