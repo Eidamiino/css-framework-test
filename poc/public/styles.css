@@ -559,7 +559,9 @@ table th {
     .sidebar.overlay {
         position: fixed;
         height: calc(100vh - 3em);
+        min-height: calc(100vh - 3em);
         z-index: 1000;
+        top: 3em;
 
         width: 90vw;
         min-width: 90vw;        
