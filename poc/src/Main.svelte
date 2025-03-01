@@ -86,6 +86,8 @@
       }
     };
 
+    
+
     window.addEventListener("resize", handleResize);
     sidebar.addEventListener("mouseenter", handleMouseEnter);
     sidebar.addEventListener("mouseleave", handleMouseLeave);
@@ -93,6 +95,7 @@
     sidebar.addEventListener("wheel", handleWheel, { passive: false });
     sidebar.addEventListener("touchstart", handleTouchStart, { passive: true });
     sidebar.addEventListener("touchmove", handleTouchMove, { passive: false });
+
 
     onDestroy(() => {
       sidebar.removeEventListener("wheel", handleWheel);
@@ -188,6 +191,12 @@
       dateInput.showPicker();
     }
   }
+
+  function handleClickOutside() {
+      if (isMobile && !sidebar.classList.contains("collapsed")) {
+        toggleSidebar()
+      }
+    }
 </script>
 
 <div class="layout-wrapper">
@@ -199,7 +208,6 @@
             <i class="fas fa-bars"></i>
           </button>
           <a href="#" class="pure-menu-heading">
-            <img class="pure-image" src="" alt="" />
             <span>Dokumenty</span>
           </a>
         </div>
@@ -424,7 +432,7 @@
         </div>
       </div>
 
-      <div class="main" id="main">
+      <div class="main" id="main" on:click={handleClickOutside}>
         <div class="main-content">
           <div
             class="loader-line {isLoading ? 'active infinite' : ''}"
@@ -441,10 +449,7 @@
           </SidebarModal>
 
           <div class="pure-g card">
-            <div class="pure-u-1-2 pure-form">
-              <input type="text" placeholder="Vyberte čas" />
-            </div>
-            <div class="pure-u-1-2" style="text-align: right;">
+            <div class="pure-u-1" style="text-align: right;">
               <button class="pure-button btn-primary ripple">Obnovit</button>
             </div>
           </div>
@@ -466,24 +471,6 @@
 
           <div class="pure-g card">
             <div class="pure-u-1 card-header">Change font size</div>
-            <!-- <div class="button-container centered-container">
-              <button
-                class="pure-button btn-primary ripple"
-                on:click={() => increaseFontSize(14)}>14px</button
-              >
-              <button
-                class="pure-button btn-primary ripple"
-                on:click={() => increaseFontSize(16)}>16px</button
-              >
-              <button
-                class="pure-button btn-primary ripple"
-                on:click={() => increaseFontSize(18)}>18px</button
-              >
-              <button
-                class="pure-button btn-primary ripple"
-                on:click={() => increaseFontSize(25)}>25px</button
-              >
-            </div> -->
             <div class="mixed-container">
               <input
                 type="range"
