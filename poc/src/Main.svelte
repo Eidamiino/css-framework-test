@@ -157,8 +157,11 @@
   }
 
   let userModalOpen = false;
+  let userModalSize = "45vw"
 
-  function openUserModal() {
+  function openUserModal(modalSize) {
+    userModalSize=modalSize
+    console.log("velikost " + userModalSize)
     userModalOpen = true;
   }
 
@@ -182,10 +185,14 @@
   }
 
   let dateInput;
+  let dateInput2;
 
   function openDatePicker() {
     if (dateInput) {
       dateInput.showPicker();
+    }
+    if (dateInput2) {
+      dateInput2.showPicker();
     }
   }
 
@@ -212,11 +219,11 @@
       <div class="pure-u-1-2">
         <div class="header-right">
           {#if isMobile}
-            <button class="icon-btn" on:click={openUserModal}>
+            <button class="icon-btn" on:click={()=>openUserModal("45vw")}>
               <i class="fas fa-user"></i>
             </button>
           {:else}
-            <a href="#" class="pure-menu-link" on:click={openUserModal}
+            <a href="#" class="pure-menu-link" on:click={()=>openUserModal("30vw")}
               >email@email.com</a
             >
           {/if}
@@ -229,7 +236,7 @@
     bind:shown={userModalOpen}
     orientation="right"
     on:close={closeUserModal}
-    targetSize="45vw"
+    targetSize={userModalSize}
   >
     <a href="#" class="pure-menu-heading">
       <span>Petr Novák</span>
@@ -493,7 +500,7 @@
 
           <div class="pure-g card">
             <div class="pure-u-1 card-header">Date picker</div>
-            <div class="pure-form centered-container">
+            <div class="pure-form centered-container mixed-container">
               <div class="input-icon-wrapper">
                 <div class="input-icon-container" on:click={openDatePicker}>
                   <i class="input-icon fas fa-calendar-alt"></i>
@@ -501,10 +508,17 @@
                 <input
                   type="date"
                   bind:this={dateInput}
-                  class="pure-input input-with-icon"
+                  class="pure-input input-with-icon hidden-calendar"
                 />
               </div>
-            </div>
+
+
+                <input
+                  type="date"
+                  bind:this={dateInput2}
+                  class="pure-input"
+                />
+              </div>
           </div>
 
           <div class="pure-g card">

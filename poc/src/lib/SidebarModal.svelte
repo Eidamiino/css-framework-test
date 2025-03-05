@@ -36,6 +36,8 @@
 	function getContentDimensions(orientation) {
 		const targetSizeDefault = targetSize || "fit-content";
 
+		console.log("aplikuje se "+targetSizeDefault)
+
 		switch (orientation) {
 			case "top":
 			case "bottom":

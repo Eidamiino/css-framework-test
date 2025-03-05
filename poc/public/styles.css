@@ -832,8 +832,8 @@ input[type="range"] {
     max-width: 15em;
 }
 
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
+input.hidden-calendar::-webkit-inner-spin-button,
+input.hidden-calendar::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
 }
