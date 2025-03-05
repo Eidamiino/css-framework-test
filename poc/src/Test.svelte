@@ -502,8 +502,8 @@
           </SidebarModal>
 
           <div class="pure-g card">
-            <div class="pure-u-1-2 pure-form">
-              <input type="text" placeholder="Vyberte čas" />
+            <div class="pure-u-1-2">
+              <a href="/#/" class="pure-menu-link" style="display: inline-block;">Main</a>
             </div>
             <div class="pure-u-1-2" style="text-align: right;">
               <button class="pure-button btn-primary ripple">Obnovit</button>

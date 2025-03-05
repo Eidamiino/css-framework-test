@@ -86,8 +86,6 @@
       }
     };
 
-    
-
     window.addEventListener("resize", handleResize);
     sidebar.addEventListener("mouseenter", handleMouseEnter);
     sidebar.addEventListener("mouseleave", handleMouseLeave);
@@ -95,7 +93,6 @@
     sidebar.addEventListener("wheel", handleWheel, { passive: false });
     sidebar.addEventListener("touchstart", handleTouchStart, { passive: true });
     sidebar.addEventListener("touchmove", handleTouchMove, { passive: false });
-
 
     onDestroy(() => {
       sidebar.removeEventListener("wheel", handleWheel);
@@ -193,10 +190,10 @@
   }
 
   function handleClickOutside() {
-      if (isMobile && !sidebar.classList.contains("collapsed")) {
-        toggleSidebar()
-      }
+    if (isMobile && !sidebar.classList.contains("collapsed")) {
+      toggleSidebar();
     }
+  }
 </script>
 
 <div class="layout-wrapper">
@@ -219,7 +216,9 @@
               <i class="fas fa-user"></i>
             </button>
           {:else}
-            <a href="#" class="pure-menu-link" on:click={openUserModal}>email@email.com</a>
+            <a href="#" class="pure-menu-link" on:click={openUserModal}
+              >email@email.com</a
+            >
           {/if}
         </div>
       </div>
@@ -449,7 +448,10 @@
           </SidebarModal>
 
           <div class="pure-g card">
-            <div class="pure-u-1" style="text-align: right;">
+            <div class="pure-u-1-2">
+              <a href="/#/test" class="pure-menu-link" style="display: inline-block;">Test</a>
+            </div>
+            <div class="pure-u-1-2" style="text-align: right;">
               <button class="pure-button btn-primary ripple">Obnovit</button>
             </div>
           </div>
